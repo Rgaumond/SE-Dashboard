@@ -1,0 +1,3 @@
+﻿let customers = [];
+let customer = {};
+

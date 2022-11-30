@@ -1,0 +1,9 @@
+﻿.content {
+    display: flex;
+    flex-flow: row wrap; 
+    align-items: flex-start; 
+    overflow-x: visible; 
+    justify-content: space-around; 
+    margin-top: 30px; 
+    padding-bottom: 30px
+}

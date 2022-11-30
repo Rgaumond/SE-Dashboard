@@ -1,0 +1,154 @@
+﻿/******HOME         **/
+
+#header {
+    display: grid;
+    grid-template-columns: 95px auto;
+    height: 50px;
+    border-bottom: 1px solid;
+}
+
+#header-logo {
+    background-image: url(../../images/Okta_Aura.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:50px;
+    cursor:pointer;
+}
+
+#header-right{
+    display: flex;
+    justify-content: space-between;
+}
+
+#eng-header-action{
+    display: flex;
+    justify-content: end;
+}
+
+
+.header-button{    
+    cursor:pointer;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width:50px;
+    height:50px;
+
+}
+
+#save-button {
+    cursor:pointer;
+}
+
+
+#toDo-button{    
+    background-image: url(../../images/actionItems.png);
+}
+
+ #toDo-button::before{    
+    content: attr(data-content) ;
+    font-size: 1.2em;
+    background: #fff;
+    color: red;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 0 5px;
+} 
+
+#add-toDo-button{
+    position:relative;
+    background-image: url(../../images/actionItems.png);
+
+}
+
+#add-toDo-button::before{
+    content: "+";
+   font-size:1.5em;
+    font-weight:bold;
+    color: rgb(224, 108, 25);
+    background-color: white;
+    position: absolute;
+    left:13px;
+    top:17px;
+}
+
+
+
+
+
+
+/***ENGINEERING  *************/
+
+
+
+#eng-header-container {
+    display:grid;
+    grid-template-columns: 30% auto 150px;
+    grid-template-rows: 50px;
+
+}
+
+#eng-header-name {
+   background:rgb(227, 235, 215);
+   line-height: 50px;
+    font-size: 2em;
+    padding-left: 50px;
+    display:flex;
+    min-width: 50%;
+}
+
+
+
+
+.delete-customer-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  color: red;
+  width:30px;
+}
+
+
+
+
+
+
+
+/******    HOME header  */
+
+#filterContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+#filterContainer .inputContainer {
+    margin: 0 10px;
+}
+
+#filterContainer label {
+    font-weight: bold;
+}
+
+#filterContainer .inputContainer input {
+    width: 80px;
+}
+
+/******    PRESENTATIONS  header  */
+
+.action-items{
+    background-image: url(../../images/actionItems.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    position:absolute;
+    right:50px;
+    height:40px;
+    cursor:pointer;
+}

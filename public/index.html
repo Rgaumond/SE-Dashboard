@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>2020Engineering</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/root/rootImport.js"></script>
+    <script>loadRootImport();</script>
+
+    <link type="text/css" rel="stylesheet" href="css/home/card.css" />
+    <link type="text/css" rel="stylesheet" href="css/home/home.css" />
+    <link type="text/css" rel="stylesheet" href="css/home/filter.css" />
+    <link type="text/css" rel="stylesheet" href="css/home/list.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="css/list.css" /> -->
+</head>
+<body>
+    <div id="header">
+        <div id="left">
+            <div id="header-logo"></div>
+        </div>
+        <div id="header-right"></div>
+    </div>
+
+    <section class="main">
+        <div class="content"></div>
+    </section>
+
+    <section id="frmContainer">
+        <form id="Frm" name="Frm" action="discovery_home.aspx" method="post">
+            <input type="hidden" id="execute" name="execute" value="" />
+            <input type="hidden" id="id" name="id" value="" />
+            <input type="hidden" id="JSON_Obj" name="JSON_Obj" value="" />
+            <input type="hidden" id="target" name="target" value="" />
+            <input type="hidden" id="accessCode" name="accessCode" value="" />
+        </form>
+    </section>
+
+    <!--HOME-->
+    <script src="js/customerListing/variables.js"></script>
+    <script src="js/customerListing/init.js"></script>
+    <script src="js/customerListing/cards.js"></script>
+    <script src="js/customerListing/pending_activities.js"></script>
+    <script src="js/filter/listing_filter.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/customerListing/event_handler.js"></script>
+    <script src="js/customerListing/dialogs.js"></script>
+    <script src="js/customerListing/object_builder.js"></script>
+
+</body>
+</html>

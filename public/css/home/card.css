@@ -1,0 +1,185 @@
+﻿
+
+.home-card {
+    margin: 20px;
+    height: 150px;
+    flex: 0 0 250px;
+    font-size: 1.2em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    position: relative;
+    perspective: 1000px;
+}
+
+.home-card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    background-color: transparent;
+    
+}
+
+.home-card-front{
+    background-color:#fff;
+}
+
+.home-card-front::before {
+    content: attr(engineer);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: .6em;
+    color: var(--darkGrey2020);
+    padding: 5px;
+}
+.home-card-front::after {
+    display: block;
+    content: attr(accManager);
+    position: absolute;
+    bottom: 15px;
+    font-size: .8em;
+    color: var(--greytone3);
+}
+
+.home-card:hover .home-card-inner {
+    transform: rotateY(180deg);
+}
+
+.home-card-outer {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: absolute;
+    background-color: hsl(33, 94%, 55%,0.1);
+}
+    .home-card-outer.pendingEstimate {
+        background-color: hsl(360, 100%, 50%, 0.2);
+    }
+
+.home-card:hover .home-card-outer {
+    /*transform: rotateX(180deg);*/
+}
+/* Position the front and back side */
+.home-card-front, .home-card-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    top: 10px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    font-size: 1.3em;
+    color: var(--orange2020);
+    font-weight: bold;
+    z-index: 1;
+}
+
+.home-card-back {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    background-color: var(--orange2020);
+    color: white;
+    transform: rotateY(180deg);
+    z-index:5;
+}
+
+.home-card-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-card-button {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background: #fff;
+    color: var(--orange2020);
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+    margin:0 10px 0 10px;
+}
+.home-card-button:hover {
+    background-color: #37f704;
+}
+
+.home-addCustomerIcon {
+    position: fixed;
+    bottom: 30px;
+    right: 45px;
+    cursor: pointer;
+    height: 70px;
+    width: 70px;
+    z-index:2;
+}
+
+.home-addCustomerIcon::before {
+    content: "add customer";
+    position: absolute;
+    border-radius: 5px;
+    padding: 2px;
+    background: #000;
+    color: #fff;
+    left: 50%;
+    top: 0;
+    display: none;
+    white-space: nowrap;
+    transform: translate(-50%,-100%);
+}
+.home-addCustomerIcon:hover::before {
+    display: block;
+}
+
+.filterTotal{
+    position:absolute;
+    left:20px;
+    top:-10px;
+}
+
+.pendingRequests {
+    position: absolute;
+    right: 20px;
+    color:red;
+    top: -10px;
+    cursor:pointer;
+    font-weight:bold;
+    text-decoration:underline;
+}
+
+.pendingExternaleContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap:10px;
+}
+.pendingContainer {
+    padding: 10px 10px;
+    cursor:pointer;
+}
+.pendingContainer:hover{
+    color:blue;
+}
+
+.pendingTitle {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.requestedDate{
+    padding-top:5px;
+}

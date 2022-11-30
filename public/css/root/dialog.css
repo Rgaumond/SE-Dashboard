@@ -1,0 +1,132 @@
+﻿.dialog-container {
+    display: flex;
+    /*align-items: center;*/
+    /*justify-content:center;*/
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.dialog {
+    display: grid;
+    grid-template-rows: 20px 1fr 50px;
+    position: relative;
+    margin: auto;
+    z-index: 999;
+    background: white;
+    max-width: 80vw;
+    border-radius: 5px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+}
+
+    .dialog.float {
+        position: absolute;
+    }
+
+        .dialog.float:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+        }
+
+
+    .dialog textarea {
+        display: block;
+        min-width: 500px;
+        min-height: 300px;
+    }
+
+    .dialog input[type="textbox"] {
+        /*width:40ch;*/
+    }
+
+.dialog__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    height: 50px;
+    font-size: 1.2em;
+    position: relative;
+}
+
+    .dialog__title h1 {
+        padding: 5px;
+        margin: auto;
+        font-size: 1em;
+    }
+
+.dialog__title-close {
+    position: absolute;
+    cursor: pointer;
+    color: red;
+    font-size: 1.5rem;
+    right: 8px;
+    top: 5px;
+}
+
+.dialog__title span:hover {
+    text-decoration: underline;
+}
+
+.dialog__main {
+    padding: 20px 50px;
+    margin: 20px 30px;
+    background: var(--orange2020Light);
+    border-radius: 5px;
+    position: relative;
+}
+
+.dialog__footer {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 10px;
+}
+
+    .dialog__footer button {
+        background-color: #4CAF50; /* Green */
+        border: .5px solid #4CAF50;
+        color: white;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1rem;
+        margin: 5px 10px;
+        border-radius: .2rem;
+        box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+        max-height: 30px;
+    }
+
+        .dialog__footer button:hover {
+            border-color: #a4f164;
+        }
+
+        .dialog__footer button:active {
+            background-color: #a4f164; /* Light Green */
+            transform: translateY(2px);
+        }
+
+.dialog-container button {
+    cursor: pointer;
+}
+
+.dialog-card {
+    margin: 10px;
+    background: var(--orange2020Light);
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+
+.dialog label {
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: .8em;
+    display: block;
+}

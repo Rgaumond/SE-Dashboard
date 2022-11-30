@@ -1,0 +1,101 @@
+﻿.notes {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.note-container {
+    display: none;
+    margin: 10px;
+    height: -webkit-fill-available;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: #fff;
+}
+
+.noteLink {    
+    cursor: pointer;
+    list-style-type: none;
+    padding:5px 0;
+}
+
+.noteLink.required {
+    color: red;
+}
+
+.ql-container {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.ql-toolbar {
+    position: relative;
+}
+
+.card.note div {
+    background: #fff;
+    position: relative;
+}
+
+.note-title {
+    padding-right: 20px;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.noteIcon {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.noteExpand {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.noteHandle {
+    position: absolute;
+    background: #ccc;
+    left: -20px;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+}
+
+
+.expander-container {
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.expander-addOn {
+    width: 20%;
+    background: white;
+}
+
+.expander-note {
+    width: 80%;
+    background: white;
+}
+
+.quickNotes{
+    display:none;
+    position:absolute;
+    background:lightGrey;
+    width:200px;
+    height:inherit;
+    left:-200px;
+}

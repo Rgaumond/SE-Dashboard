@@ -1,0 +1,30 @@
+.to-do-list-outer-container{
+    color:rgb(8, 8, 116);
+    padding: 10px 0;
+}
+
+.to-do-list-container{
+    background-color: white;
+    padding: 5px 10px;
+    cursor:pointer;
+}
+
+.to-do-list-title-container{
+    display:flex;
+}
+
+
+.to-do-delete-list{
+    color:red;
+    padding-left:5px;
+    font-size:.8em;
+}
+
+.to-do-list-date{
+    font-size: .8em;
+}
+
+.to-do-list-details{
+    white-space:pre-wrap;
+    font-size: .5em;
+}

@@ -1,0 +1,60 @@
+﻿.openFileIcon {
+    width: 25px;
+    height: 25px;
+    stroke:green;
+    fill:none;
+}
+
+.editIcon {
+    width: 25px;
+    height: 25px;
+    fill: blue;
+}
+
+.saveIcon {
+    width: 50px;
+    height: 50px;
+    stroke:#000;
+}
+
+.engineeringIcon {
+    width: 35px;
+    height: 35px;
+    stroke:#000;
+    stroke-width:3;
+}
+
+.informationIcon {
+    width: 30px;
+    height: 30px;
+    stroke: #000;
+    stroke-width: 4;
+}
+.deleteIcon {
+    width: 22px;
+    height: 22px;
+    stroke: red;
+    fill:none;
+    stroke-width: 6;
+}
+
+.addCustomerIcon {
+    fill: hsl(33, 94%, 55%, .1);
+    stroke: orange;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.documentIcon {
+    width: 25px;
+    height: 25px;
+    stroke: #000;
+    stroke-width: 0.05;
+}
+
+.clearFilterIcon {
+    width: 25px;
+    height: 25px;
+    fill: red;
+}
