@@ -17,7 +17,7 @@ generateSelectOptions(meetingsTypes,nextMeetingOptions, "Meeting");
 
 let accountManagerOptions = {};
 let accountManagers = [
-    "François Vigneault", "Lindsay Osaka","Kyffin De Souza"
+    "François Vigneault", "Lindsay Osaka","Kyffin De Souza","Robert Samaan"
     ];
 generateSelectOptions(accountManagers,accountManagerOptions, "Account manager");
 
