@@ -13,7 +13,7 @@ const Customer = require("../customerModel");
 router
 .route("/")
 .post( async (req,res)=>{
-   // await Customer.deleteOne({ _id: 1669758456266 });
+ 
     let customers =await Customer.find().exec();
     res.send({customers});
 });
