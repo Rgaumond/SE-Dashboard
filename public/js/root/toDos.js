@@ -42,13 +42,13 @@ const generateToDoList = () => {
         let targetDate = todoItem.targetDate;
         if(targetDate==="")
             targetDate = "No date";
-
+        let truncatedName = truncateText(todoItem.name);
         let ct = 
         `<div class='to-do-list-outer-container' >
             <div class='to-do-list-container' style='min-width:300px;font-size:1.4em'>
                 <div class='to-do-list-title-container' >
-                    <div class='to-do-list-title' onclick=showEditToDo(${index})>${truncateText(todoItem.name)}</div>
-                    <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick=confirmDelete(${todoItem._id},${index},'${truncateText(todoItem.name)}')>
+                    <div class='to-do-list-title' onclick=showEditToDo(${index})>${truncatedName}</div>
+                    <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick="confirmDelete(${todoItem._id},${index},'${truncatedName}')">
                         <i class='fa fa-trash' aria-hidden='true'></i>
                     </div>
                 </div>            
