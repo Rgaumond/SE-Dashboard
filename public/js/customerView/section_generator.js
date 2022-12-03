@@ -41,7 +41,7 @@ const generateInfoElement = () => {
         ], "info1");
 
         generateSection("SOLUTION", [
-            ["numberOfUsers", "input", "Number of Users"],
+            ["numberOfUsers", "textarea", "Number of Users"],
             ["painPoints", "textarea", "Pain Points"],
             ["competition", "textarea", "Competition"],
             ["targetDate", "date", "Target Date"],
