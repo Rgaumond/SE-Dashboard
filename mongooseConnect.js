@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const connection = "mongodb://localhost:27017/SEDB";
+const connection = "mongodb://127.0.0.1:27017/SEDB";
 //Db connection
 mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
