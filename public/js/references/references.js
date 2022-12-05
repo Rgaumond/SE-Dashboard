@@ -85,7 +85,7 @@ const buildNoteSection = () => {
 const toolbar = (label, propName) => {
   let content = "<span class='note-title'>" + label + "</span>";
   content +=
-    "<span class='noteIcon' onclick='referenceUpdate()'><i class='fa ffa-floppy-o' aria-hidden='true'></i></span>";
+    "<span class='noteIcon' onclick='referenceUpdate()'><i class='fa fa-floppy-o' aria-hidden='true'></i></span>";
   // content += "<span class='noteExpand'  onclick=expandNote('" + propName + "')><i class='fa fa-expand' aria-hidden='true'></i></span>";
   return content;
 };
@@ -140,7 +140,7 @@ const createReferenceObject = (name) => {
   let newItem = {};
   newItem._id = newID;
   newItem.name = name;
-  newItem.detail = "";
+  newItem.details = "";
   product.features.push(newItem);
   loadFeatures();
   showItemDetails(newID);
