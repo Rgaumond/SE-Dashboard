@@ -70,11 +70,17 @@
         //});
         return objs.sort((a, b) => (a[txt].toLowerCase() > b[txt].toLowerCase()) ? 1 : ((b[txt].toLowerCase() > a[txt].toLowerCase()) ? -1 : 0));
     },
-    sortByNumericValue(objs) {
+    sortByNumericValue(objs,item) {
         //$.each(objs, (index, obj) => {
         //    console.log(obj.name);
         //});
-        return objs.sort((a, b) => (a.lastUpdateEpoch > b.lastUpdateEpoch) ? 1 : ((b.lastUpdateEpoch > a.lastUpdateEpoch) ? -1 : 0));
+        return objs.sort((a, b) => (a[item] > b[item]) ? 1 : ((b[item] > a[item]) ? -1 : 0));
+    },
+    sortByNumericValueDesc(objs,item) {
+        //$.each(objs, (index, obj) => {
+        //    console.log(obj.name);
+        //});
+        return objs.sort((a, b) => (a[item] < b[item]) ? 1 : ((b[item] < a[item]) ? -1 : 0));
     },
     fetchNextID(arrObj, id) {
         let selectNext = false;

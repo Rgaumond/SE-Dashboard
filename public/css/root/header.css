@@ -40,6 +40,19 @@
 
 }
 
+.header-button-blank{
+    border: 1px solid #d5cece;
+    margin: 3px;
+    max-height: 44px;
+    border-radius: 5px;
+    background: #f1f1f1;
+    text-align: center;
+    line-height: 44px;
+    min-width: 44px;
+    padding: 0 5px;
+    cursor:pointer;
+}
+
 #save-button {
     cursor:pointer;
 }

@@ -3,6 +3,8 @@ const port = process.env.port || 5500;
 const customersRouter = require("./routes/customers");
 const toDosRouter = require("./routes/todos");
 const referenceRouter = require("./routes/references");
+const heroRouter = require("./routes/hero");
+const stackRouter = require("./routes/stack");
 //Server
 const app = express();
 app.use(express.json());
@@ -13,6 +15,8 @@ app.use(express.static("public"));
 app.use("/customers", customersRouter);
 app.use("/todos", toDosRouter);
 app.use("/references", referenceRouter);
+app.use("/hero", heroRouter);
+app.use("/stack", stackRouter);
 // use to handle endpoints with /customer
 
 app.get("/",(req, res)=> {

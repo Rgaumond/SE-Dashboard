@@ -142,7 +142,7 @@ const createReferenceObject = (name) => {
     showItemDetails(newID);
 };
 
-// const showTotalReferencess = (total) =>{
+// const showTotalReferences = (total) =>{
 //     $('#reference-button').attr('data-content',total);
 // };
 
