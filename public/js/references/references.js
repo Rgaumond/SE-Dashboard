@@ -1,40 +1,44 @@
-let references =[];
+let references = [];
 let product = {};
 let currentFeature = {};
-let section_built =false;
+let section_built = false;
 //let reference = {};
 //referenceList();
 
-
 const generateReferenceItems = (productName) => {
-    let finalCt = "";
-    if (!section_built) {buildNoteSection();section_built = true;}
-    else{$(".note-container").hide();}
-    product = references.find((object) => {
-      return object.product === productName;
-    });
-    loadFeatures();
-  }; 
+  let finalCt = "";
+  if (!section_built) {
+    buildNoteSection();
+    section_built = true;
+  } else {
+    $(".note-container").hide();
+  }
+  product = references.find((object) => {
+    return object.product === productName;
+  });
+  loadFeatures();
+};
 
-const showReference=(name)=>{
+const showReference = (name) => {
   generateReferenceItems(name);
 };
 
-const loadFeatures = () =>{
+const loadFeatures = () => {
   let finalCt = "";
   $.each(product.features, (index, referenceItem) => {
     let truncatedName = truncateText(referenceItem.name);
-    let ct = 
-    `<div class='item' onclick="showItemDetails(${referenceItem._id})">${truncatedName}</div>`;
-    finalCt+=ct;
-});
-$("#navigator").html(finalCt);
+    let ct = `<div class='item' onclick="showItemDetails(${referenceItem._id})">${truncatedName}</div>`;
+    finalCt += ct;
+  });
+  $("#navigator").html(finalCt);
 };
 
-const showItemDetails = (featureID) =>{
+const showItemDetails = (featureID) => {
   referenceUpdate();
-  currentFeature = product.features.find(object => {return object._id===featureID});
-  if(!currentFeature.details)currentFeature.details="";
+  currentFeature = product.features.find((object) => {
+    return object._id === featureID;
+  });
+  if (!currentFeature.details) currentFeature.details = "";
   $("#note-details .ql-editor").html(currentFeature.details);
   $(".note-container").show();
 };
@@ -47,49 +51,53 @@ const noteContainer = (propName) => {
               </div>
           </div>`;
 };
-const buildNoteSection = () => {   
+const buildNoteSection = () => {
   // create container for the note
   let propName = "details";
   let label = "details";
-  $("#details").append(noteContainer(propName));  
+  $("#details").append(noteContainer(propName));
   var quill = new Quill(`#note-${propName}`, {
-      modules: {toolbar: [ ['bold', 'italic', 'underline'],[{ 'list': 'ordered' }, { 'list': 'bullet' }],
-      [{ 'color': [] }, { 'background': [] }],['link','image']]}, theme: 'snow'
+    modules: {
+      toolbar: [
+        ["bold", "italic", "underline"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ color: [] }, { background: [] }],
+        ["link", "image"],
+      ],
+    },
+    theme: "snow",
   });
   quill.charCount = 0;
   $(`#note-${propName} .ql-editor`).html();
-  quill.on('text-change', function () {
-      quill.charCount++;
-      let containerID = quill.container.id;
-      let content = $("#" + containerID + " .ql-editor").html();
-      currentFeature.details = content;
-      if (quill.charCount > 10) {
-          quill.charCount = 0;
-          referenceUpdate();
-      }
+  quill.on("text-change", function () {
+    quill.charCount++;
+    let containerID = quill.container.id;
+    let content = $("#" + containerID + " .ql-editor").html();
+    currentFeature.details = content;
+    if (quill.charCount > 10) {
+      quill.charCount = 0;
+      referenceUpdate();
+    }
   });
   $(`#noteContainer-${propName} .ql-toolbar`).prepend(toolbar(label, propName));
 };
 
 const toolbar = (label, propName) => {
-  // let content = "<span class='note-title'>" + label + "</span>";
-  // content += "<span class='noteIcon' onclick=addDatedNotes('" + propName + "')><i class='fa fa-calendar' aria-hidden='true'></i></span>";
+  let content = "<span class='note-title'>" + label + "</span>";
+  content +=
+    "<span class='noteIcon' onclick='referenceUpdate()'><i class='fa ffa-floppy-o' aria-hidden='true'></i></span>";
   // content += "<span class='noteExpand'  onclick=expandNote('" + propName + "')><i class='fa fa-expand' aria-hidden='true'></i></span>";
-  // return content;
+  return content;
 };
 
 const showAddReference = () => {
-  if(product.product!==undefined) {
+  if (product.product !== undefined) {
     console.log(product);
     let ct = `<div class='dialog-card'>
         ${buildInput("referenceName", "", "To Do Name")}`;
     dialog.load("New To Do", ct, referenceValidate, "Add");
     $("#referenceName").focus();
-  }
-  else
-  alert("Please select a reference");
-    
-
+  } else alert("Please select a reference");
 };
 
 // const showEditReference = (index) => {
@@ -107,17 +115,13 @@ const showAddReference = () => {
 //     generateList
 // };
 
- 
-
-
 const referenceValidate = () => {
-    if ($("#input-cieName").val() === "")
-        alert("You must enter a name");
-    else{
-        createReferenceObject($("#input-referenceName").val());
-        dialog.disintegrate();
-    }
-}
+  if ($("#input-cieName").val() === "") alert("You must enter a name");
+  else {
+    createReferenceObject($("#input-referenceName").val());
+    dialog.disintegrate();
+  }
+};
 
 // const referenceValidateEdit = () => {
 //     if ($("#input-cieName").val() === "")
@@ -132,14 +136,14 @@ const referenceValidate = () => {
 // }
 
 const createReferenceObject = (name) => {
-    let newID = Date.now();
-    let newItem = {};
-    newItem._id = newID;
-    newItem.name=name;
-    newItem.detail="";
-    product.features.push(newItem);
-    loadFeatures();
-    showItemDetails(newID);
+  let newID = Date.now();
+  let newItem = {};
+  newItem._id = newID;
+  newItem.name = name;
+  newItem.detail = "";
+  product.features.push(newItem);
+  loadFeatures();
+  showItemDetails(newID);
 };
 
 // const showTotalReferences = (total) =>{
