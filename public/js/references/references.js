@@ -1,14 +1,18 @@
 let references =[];
 let product = {};
 let currentFeature = {};
+let section_built =false;
 //let reference = {};
 //referenceList();
 
 
 const generateReferenceItems = (productName) => {
     let finalCt = "";
-    buildNoteSection(); 
-    product = references.find(object => {return object.product===productName});
+    if (!section_built) {buildNoteSection();section_built = true;}
+    else{$(".note-container").hide();}
+    product = references.find((object) => {
+      return object.product === productName;
+    });
     loadFeatures();
   }; 
 
@@ -29,8 +33,8 @@ $("#navigator").html(finalCt);
 
 const showItemDetails = (featureID) =>{
   referenceUpdate();
-  console.log(featureID)  
   currentFeature = product.features.find(object => {return object._id===featureID});
+  if(!currentFeature.details)currentFeature.details="";
   $("#note-details .ql-editor").html(currentFeature.details);
   $(".note-container").show();
 };
@@ -75,10 +79,16 @@ const toolbar = (label, propName) => {
 };
 
 const showAddReference = () => {
+  if(product.product!==undefined) {
+    console.log(product);
     let ct = `<div class='dialog-card'>
         ${buildInput("referenceName", "", "To Do Name")}`;
     dialog.load("New To Do", ct, referenceValidate, "Add");
     $("#referenceName").focus();
+  }
+  else
+  alert("Please select a reference");
+    
 
 };
 

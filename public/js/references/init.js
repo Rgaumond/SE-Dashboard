@@ -5,8 +5,4 @@ jQuery(function() {
 
 const referenceInitReponseHandler = (data) =>{
   references = data;
-  console.log(references);
-
-  //generateReferenceItems();
-
 };
