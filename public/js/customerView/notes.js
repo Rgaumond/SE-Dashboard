@@ -20,9 +20,9 @@ const buildNoteSection = (propName, label) => {
   $("body").append(noteContainer(propName, view));
   var quill = new Quill(`#note-${propName}`, {
     modules: {
-      imageResize: {
-        displaySize: true,
-      },
+      // imageResize: {
+      //   displaySize: true,
+      // },
       toolbar: [
         ["bold", "italic", "underline"],
         [{ list: "ordered" }, { list: "bullet" }],
@@ -43,9 +43,7 @@ const buildNoteSection = (propName, label) => {
       customerUpdate(customer);
     }
   });
-  $(`#noteContainer-${propName} .ql-toolbar`).prepend(
-    this.toolbar(label, propName)
-  );
+  $(`#noteContainer-${propName} .ql-toolbar`).prepend(toolbar(label, propName));
 };
 
 /* ORIGINAL */
