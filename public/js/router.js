@@ -91,3 +91,7 @@ const customerSimpleUpdate = (cust) => {
     }).then(res =>  {                           
     }); 
 };
+
+const goToReferences = () =>{
+    window.location.href = "references.html"; 
+}

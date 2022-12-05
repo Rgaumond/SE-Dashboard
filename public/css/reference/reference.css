@@ -1,0 +1,30 @@
+#reference-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#main {
+  grid-template-columns: min-content 1fr;
+  display: grid;
+}
+
+#navigator {
+  border-right: 1px solid #000;
+}
+
+.item {
+  padding: 5px 20px;
+  cursor: pointer;
+  color: blue;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.header-buttons {
+  cursor: pointer;
+  padding: 5px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  line-height: 18px;
+  margin: 10px;
+}

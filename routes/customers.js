@@ -6,7 +6,7 @@ let router = express.Router();
 
 const db = require("../mongooseConnect");
 //End points
-const Customer = require("../customerModel");
+const Customer = require("../models/customerModel");
 
 
 // LIST 

@@ -33,7 +33,8 @@ const toggleView=()=>{
 
 const addToDiscoveryNotes = (propName, note) =>{
     let original = $(`#note-${propName} .ql-editor`).html();
-    $(`#note-${propName} .ql-editor`).html(`${original}<p><strong><u>${note}</u></strong></p>`);
+    $(`#note-${propName} .ql-editor`).html(`${original}<p><strong><u>${note}</u></strong></p>`); 
+    console.log("🚀 ~ file: handlers.js:37 ~ addToDiscoveryNotes ~ original", original)
 };
 
 
