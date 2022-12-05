@@ -127,7 +127,7 @@ const createReferenceObject = (name) => {
     newItem._id = newID;
     newItem.name=name;
     newItem.detail="";
-    product.features.push(newItem);ZZ
+    product.features.push(newItem);
     loadFeatures();
     showItemDetails(newID);
 };
