@@ -1,18 +1,21 @@
 let references = [];
 let product = {};
+let currentProductName;
 let currentFeature = {};
 let section_built = false;
 //let reference = {};
 //referenceList();
 
 const generateReferenceItems = (productName) => {
-  let finalCt = "";
+  currentProductName = productName;
+  $("#reference-title").html(currentProductName);
   if (!section_built) {
     buildNoteSection();
     section_built = true;
   } else {
     $(".note-container").hide();
   }
+
   product = references.find((object) => {
     return object.product === productName;
   });
@@ -83,7 +86,7 @@ const buildNoteSection = () => {
 };
 
 const toolbar = (label, propName) => {
-  let content = "<span class='note-title'>" + label + "</span>";
+  let content = "<span class='note-title' >" + label + "</span>";
   content +=
     "<span class='noteIcon' onclick='referenceUpdate()'><i class='fa fa-floppy-o' aria-hidden='true'></i></span>";
   // content += "<span class='noteExpand'  onclick=expandNote('" + propName + "')><i class='fa fa-expand' aria-hidden='true'></i></span>";

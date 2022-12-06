@@ -3,6 +3,13 @@
   justify-content: flex-end;
 }
 
+#reference-title{
+  font-size: 2em;
+  color:blue;
+  position:absolute;
+  left:30%;
+
+}
 #main {
   grid-template-columns: min-content 1fr;
   display: grid;
