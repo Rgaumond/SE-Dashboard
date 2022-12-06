@@ -23,6 +23,7 @@ const generateReferenceItems = (productName) => {
 };
 
 const showReference = (name) => {
+  //referenceUpdate();
   generateReferenceItems(name);
 };
 
@@ -37,7 +38,7 @@ const loadFeatures = () => {
 };
 
 const showItemDetails = (featureID) => {
-  referenceUpdate();
+  //referenceUpdate();
   currentFeature = product.features.find((object) => {
     return object._id === featureID;
   });
@@ -77,10 +78,11 @@ const buildNoteSection = () => {
     let containerID = quill.container.id;
     let content = $("#" + containerID + " .ql-editor").html();
     currentFeature.details = content;
-    if (quill.charCount > 10) {
-      quill.charCount = 0;
-      referenceUpdate();
-    }
+    referenceUpdate();
+    // if (quill.charCount > 1) {
+    //   quill.charCount = 0;
+    //   referenceUpdate();
+    // }
   });
   $(`#noteContainer-${propName} .ql-toolbar`).prepend(toolbar(label, propName));
 };
@@ -95,7 +97,6 @@ const toolbar = (label, propName) => {
 
 const showAddReference = () => {
   if (product.product !== undefined) {
-    console.log(product);
     let ct = `<div class='dialog-card'>
         ${buildInput("referenceName", "", "To Do Name")}`;
     dialog.load("New To Do", ct, referenceValidate, "Add");
