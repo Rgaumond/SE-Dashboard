@@ -45,6 +45,7 @@ const showItemDetails = (featureID) => {
   if (!currentFeature.details) currentFeature.details = "";
   $("#note-details .ql-editor").html(currentFeature.details);
   $(".note-container").show();
+  $(".ref-note-title").html(currentFeature.name);
 };
 
 const noteContainer = (propName) => {
@@ -88,7 +89,7 @@ const buildNoteSection = () => {
 };
 
 const toolbar = (label, propName) => {
-  let content = "<span class='note-title' >" + label + "</span>";
+  let content = "<span class='ref-note-title' >" + label + "</span>";
   content +=
     "<span class='noteIcon' onclick='referenceUpdate()'><i class='fa fa-floppy-o' aria-hidden='true'></i></span>";
   // content += "<span class='noteExpand'  onclick=expandNote('" + propName + "')><i class='fa fa-expand' aria-hidden='true'></i></span>";
