@@ -5,7 +5,7 @@ jQuery(function () {
 const referenceInitReponseHandler = (data) => {
   references = data;
 
-  referenceDeleteAll();
+  //referenceDeleteAll();
 
   // $.each(references, (index, ref) => {
   //   $.each(ref.features, (index, fea) => {

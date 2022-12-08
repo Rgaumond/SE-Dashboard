@@ -1,6 +1,7 @@
 let references = [];
 let product = {};
 let currentProductName;
+let currentFeatures = [];
 let currentFeature = {};
 let section_built = false;
 //let reference = {};
@@ -16,8 +17,8 @@ const generateReferenceItems = (productName) => {
     $(".note-container").hide();
   }
 
-  product = references.find((object) => {
-    return object.product === productName;
+  currentFeatures = references.filter((obj) => {
+    return obj.product === productName;
   });
   loadFeatures();
 };
@@ -29,10 +30,10 @@ const showReference = (name) => {
 
 const loadFeatures = () => {
   let finalCt = "";
-  let sortedFeatures = ArrayUtilities.sortByName(product.features);
-  $.each(product.features, (index, referenceItem) => {
-    let truncatedName = truncateText(referenceItem.name);
-    let ct = `<div class='item' onclick="showItemDetails(${referenceItem._id})">${truncatedName}</div>`;
+  let sortedFeatures = ArrayUtilities.sortByName(currentFeatures);
+  $.each(sortedFeatures, (index, feature) => {
+    let truncatedName = truncateText(feature.name);
+    let ct = `<div class='item' onclick="showItemDetails(${feature._id})">${truncatedName}</div>`;
     finalCt += ct;
   });
   $("#navigator").html(finalCt);
@@ -40,7 +41,7 @@ const loadFeatures = () => {
 
 const showItemDetails = (featureID) => {
   //referenceUpdate();
-  currentFeature = product.features.find((object) => {
+  currentFeature = currentFeatures.find((object) => {
     return object._id === featureID;
   });
   if (!currentFeature.details) currentFeature.details = "";
@@ -80,7 +81,7 @@ const buildNoteSection = () => {
     let containerID = quill.container.id;
     let content = $("#" + containerID + " .ql-editor").html();
     currentFeature.details = content;
-    referenceUpdate();
+    referenceUpdate(currentFeature);
     // if (quill.charCount > 1) {
     //   quill.charCount = 0;
     //   referenceUpdate();
@@ -98,7 +99,7 @@ const toolbar = (label, propName) => {
 };
 
 const showAddReference = () => {
-  if (product.product !== undefined) {
+  if (currentProductName !== undefined) {
     let ct = `<div class='dialog-card'>
         ${buildInput("referenceName", "", "To Do Name")}`;
     dialog.load("New To Do", ct, referenceValidate, "Add");
@@ -146,8 +147,10 @@ const createReferenceObject = (name) => {
   let newItem = {};
   newItem._id = newID;
   newItem.name = name;
+  newItem.product = currentProductName;
   newItem.details = "";
-  product.features.push(newItem);
+  referenceAdd(newItem);
+  currentFeatures.push(newItem);
   loadFeatures();
   showItemDetails(newID);
 };

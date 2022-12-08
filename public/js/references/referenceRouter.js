@@ -11,12 +11,12 @@ const referenceList = () => {
 };
 
 /* UPDATING */
-const referenceUpdate = () => {
+const referenceUpdate = (feature) => {
   //dialog.standy("update to do");
   fetch("/references/update", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(product),
+    body: JSON.stringify(feature),
   }).then((res) => {
     // dialog.disintegrate();
     //generateReferenceList();
@@ -25,17 +25,17 @@ const referenceUpdate = () => {
 };
 
 /* ADDING */
-const referenceAdd = () => {
+const referenceAdd = (obj) => {
   dialog.standy("adding reference");
   let currentItemID = fetch("/references/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(tempObject),
+    body: JSON.stringify(obj),
   })
     .then((res) => res.json())
     .then((data) => {
-      referenceList();
-      dialog.disintegrate();
+      // referenceList();
+      // dialog.disintegrate();
       //window.location.href = "customerView.html?id="+data.newID;
     });
 };
