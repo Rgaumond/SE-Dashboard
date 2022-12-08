@@ -67,3 +67,27 @@ const requestReferenceView = (customerID) => {
       viewInitResponseHandler(data);
     });
 };
+
+/* ADDING */
+const referenceMigrate = (ref) => {
+  dialog.standy("adding reference");
+  let currentItemID = fetch("/references/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(ref),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    });
+};
+
+/* DELETING */
+const referenceDeleteAll = () => {
+  dialog.standy("adding customer");
+  fetch("/references/deleteAll", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({}),
+  }).then((res) => {});
+};
