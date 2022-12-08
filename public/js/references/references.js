@@ -29,6 +29,7 @@ const showReference = (name) => {
 
 const loadFeatures = () => {
   let finalCt = "";
+  let sortedFeatures = ArrayUtilities.sortByName(product.features);
   $.each(product.features, (index, referenceItem) => {
     let truncatedName = truncateText(referenceItem.name);
     let ct = `<div class='item' onclick="showItemDetails(${referenceItem._id})">${truncatedName}</div>`;
