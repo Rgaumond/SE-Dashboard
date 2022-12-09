@@ -8,27 +8,27 @@ const stackRouter = require("./routes/stack");
 //Server
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //Router
 app.use("/customers", customersRouter);
 app.use("/todos", toDosRouter);
 app.use("/references", referenceRouter);
-app.use("/hero", heroRouter);
+app.use("/heros", heroRouter);
 app.use("/stack", stackRouter);
 // use to handle endpoints with /customer
 
-app.get("/",(req, res)=> {
-    console.log("ROOT");
-    res.sendFile(__dirname+"/index.html");   
+app.get("/", (req, res) => {
+  console.log("ROOT");
+  res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(port, err => {
-    if (err) {
-        return console.log("ERROR", err);
-    }
-    console.log(`Listening on port ${port}`);
+app.listen(port, (err) => {
+  if (err) {
+    return console.log("ERROR", err);
+  }
+  console.log(`Listening on port ${port}`);
 });
 
-require('./mongoExport')
+require("./mongoExport");

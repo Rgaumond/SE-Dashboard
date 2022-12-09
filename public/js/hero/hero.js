@@ -1,113 +1,119 @@
-let stacks =[];
-//let stack = {};
-stackList();
+let heros = [];
+//let hero = {};
 
-const stackInitReponseHandler = (stackResult) => {   
-    stacks = stackResult;
-    showTotalStacks(stacks.length);   
-}
-
-const showAddStack = () => {
-    let ct = `<div class='dialog-card'>
-        ${buildInput("stackName", "", "To Do Name")}
-        ${buildInput("stackTargetDate", "", "Target Date")}
-        ${buildTextArea("stackDetails", '', "Details")}</div>`;
-    dialog.load("New To Do", ct, stackValidate, "Add");
-    $("#stackName").focus();
-
+const heroInitReponseHandler = (heroResult) => {
+  heros = heroResult.filter((obj) => {
+    return obj.customerID === customer._id;
+  });
+  showTotalHeros(heros.length);
 };
 
-const showEditStack = (index) => {
-    stack = stacks[index];
-    let ct = `<div class='dialog-card'>
-        ${buildInput("stackName", stack.name, "To Do Name")}
-        ${buildInput("stackTargetDate", stack.targetDate, "Target Date")}
-        ${buildTextArea("stackDetails", stack.details, "Details")}</div>`;
-    dialog.load("New To Do", ct, stackValidateEdit, "Update");
-    $("#stackName").focus();
-
+const showAddHero = () => {
+  let ct = `<div class='dialog-card'>
+        ${buildInput("heroTargetDate", "", "Target Date")}
+        ${buildSelect(
+          "heroTimeSelect",
+          ArrayUtilities.sortByTextValue(heroTimeOptions.options, "text"),
+          "Hero Times"
+        )}
+        ${buildSelect(
+          "heroTypeSelect",
+          ArrayUtilities.sortByTextValue(heroTypesOptions.options, "text"),
+          "Hero Types"
+        )}</div>`;
+  dialog.load("New Hero", ct, heroValidate, "Add", enableDatePicker);
+  $("#heroName").focus();
 };
 
-const showStacks = () => {
-    generateList
+const enableDatePicker = () => {
+  $(`#input-heroTargetDate`).datepicker({
+    dateFormat: "dd-M-yy",
+    changeMonth: true,
+    changeYear: true,
+  });
+};
+const showHeros = () => {
+  generateList;
 };
 
-const generateStackList = () => {
-    let finalCt = "";
-    
-    $.each(stacks, (index, stackItem) => {
-        let details = stackItem.details;
-        if(details==="")
-            details = "--";
-        let targetDate = stackItem.targetDate;
-        if(targetDate==="")
-            targetDate = "No date";
-        let truncatedName = truncateText(stackItem.name);
-        let ct = 
-        `<div class='to-do-list-outer-container' >
+const generateHeroList = () => {
+  let finalCt = "";
+
+  $.each(heros, (index, hero) => {
+    let time = hero.time;
+    let type = hero.type;
+    let ct = `<div class='to-do-list-outer-container' >
             <div class='to-do-list-container' style='min-width:300px;font-size:1.4em'>
                 <div class='to-do-list-title-container' >
-                    <div class='to-do-list-title' onclick=showEditStack(${index})>${truncatedName}</div>
-                    <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick="confirmDelete(${stackItem._id},${index},'${truncatedName}')">
+                    <div class='to-do-list-title'>${hero.activity}</div>
+                    <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick="confirmDeleteHero(${hero._id},${index},'${hero.activity}')">
                         <i class='fa fa-trash' aria-hidden='true'></i>
                     </div>
                 </div>            
-                <div class='to-do-list-date' onclick=editStackDialog(${stackItem._id},${index})>Target: ${targetDate}</div>
-                <div class='to-do-list-details' style='white-space:pre-wrap' >${details}</div>
+                <div class='to-do-list-date' >Date: ${hero.date} Time:${hero.time}</div>
             </div>
         </div>`;
-        //CTAs
-        // ct += `<div class='list-cta-container'>
-        //     <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick=stackDelete(${stackItem._id},${index})>
-        //         <i class='fa fa-trash' aria-hidden='true'></i>
-        //     </div>
-        // </div></div>`;
-        finalCt+=ct;
-    });
-    dialog.load("To Do List",finalCt);
-  };  
-
-
-const stackValidate = () => {
-    if ($("#input-cieName").val() === "")
-        alert("You must enter a name");
-    else{
-        let tempObject = createStackObject();
-        tempObject.name = $("#input-stackName").val();
-        tempObject.details = $("#area-stackDetails").val();
-        tempObject.targetDate = $("#input-stackTargetDate").val();
-        dialog.disintegrate();
-        stackAdd(tempObject);
-    }
-}
-
-const stackValidateEdit = () => {
-    if ($("#input-cieName").val() === "")
-        alert("You must enter a name");
-    else{
-         stack.name = $("#input-stackName").val();
-        stack.details = $("#area-stackDetails").val();
-        stack.targetDate = $("#input-stackTargetDate").val();
-        dialog.disintegrate();
-        stackUpdate(stack);
-    }
-}
-
-const createStackObject = (name, accountManager, iamType) => {
-    let newBlankCustomer = {};
-    newBlankCustomer.name=name;
-    newBlankCustomer.byDate="";
-    newBlankCustomer.creationDate=currentDate();
-    newBlankCustomer.details = "";
-    return newBlankCustomer;
+    //CTAs
+    // ct += `<div class='list-cta-container'>
+    //     <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick=heroDelete(${heroItem._id},${index})>
+    //         <i class='fa fa-trash' aria-hidden='true'></i>
+    //     </div>
+    // </div></div>`;
+    finalCt += ct;
+  });
+  dialog.load("To Do List", finalCt);
 };
 
-const showTotalStacks = (total) =>{
-    $('#stack-button').attr('data-content',total);
+const heroValidate = () => {
+  if (
+    $("#select-heroTimeSelect").val() === "0" ||
+    $("#input-heroTargetDate").val() === "" ||
+    $("#select-heroTypeSelect").val() === "0"
+  ) {
+    alert("Incomplete");
+  } else {
+    let tempObject = {};
+    tempObject.time = $("#select-heroTimeSelect option:selected").text();
+    tempObject.activity = $("#select-heroTypeSelect option:selected").text();
+    tempObject.date = $("#input-heroTargetDate").val();
+    tempObject.customerID = customer._id;
+    dialog.disintegrate();
+    heroAdd(tempObject);
+  }
 };
 
-const confirmDelete = (id,index,name)=>{
-    if (confirm("Delete "+ name)) {
-     stackDelete(id,index);
-    }
+const heroValidateEdit = () => {
+  if ($("#input-heroName").val() === "") alert("You must enter a name");
+  else {
+    hero.name = $("#input-heroName").val();
+    hero.details = $("#select-heroDetailsSelect").text();
+    hero.targetDate = $("#input-heroTargetDate").text();
+    dialog.disintegrate();
+    heroUpdate(hero);
+  }
 };
+
+const showTotalHeros = (total) => {
+  $("#hero-button").attr("data-content", total);
+};
+
+const confirmDeleteHero = (id, index, name) => {
+  if (confirm("Delete " + name)) {
+    heroDelete(id, index);
+  }
+};
+// const showEditHero = (index) => {
+//   hero = heros[index];
+//   let ct = `<div class='dialog-card'>
+//         ${buildInput("heroName", hero.name, "To Do Name")}
+//         ${buildInput("heroTargetDate", hero.targetDate, "Target Date")}
+//         ${buildSelect(
+//           "heroDetailsSelect",
+//           ArrayUtilities.sortByTextValue(heroTypesOptions.options, "text"),
+//           "Hero Types"
+//         )}
+
+//         </div>`;
+//   dialog.load("New Hero", ct, heroValidateEdit, "Update", "enableDatePicker");
+//   $("#heroName").focus();
+// };

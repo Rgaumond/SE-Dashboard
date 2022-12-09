@@ -1,10 +1,14 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
-const searchSchema = new mongoose.Schema({
+const searchSchema = new mongoose.Schema(
+  {
     _id: Number,
-    name:String,
-    details: String 
+    time: String,
+    date: String,
+    activity: String,
+    customerID: Number,
+  },
+  { collection: "hero" }
+);
 
-},{ collection : 'hero' });
-
-module.exports = mongoose.model("heroModel", searchSchema)
+module.exports = mongoose.model("heroModel", searchSchema);

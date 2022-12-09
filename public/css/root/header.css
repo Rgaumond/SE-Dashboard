@@ -53,6 +53,15 @@
     cursor:pointer;
 }
 
+#hero-button::before{
+    content: attr(data-content) ;
+    font-size: 1.2em;
+    background: #fff;
+    color: red;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 0 5px;
+}
 #save-button {
     cursor:pointer;
 }
