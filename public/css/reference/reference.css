@@ -27,13 +27,22 @@
   text-align: center;
 }
 
-.header-buttons {
+.ref-header-buttons {
   cursor: pointer;
   padding: 5px 20px;
   border: 1px solid #000;
   border-radius: 5px;
   line-height: 18px;
   margin: 10px;
+}
+
+.ref-action-button{
+  background:green ;
+  color:#fff;
+}
+.ref-header-buttons:hover {
+  border-color: blue;
+  background-color: lightblue;
 }
 
 .ql-editor{

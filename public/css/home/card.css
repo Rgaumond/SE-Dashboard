@@ -2,17 +2,25 @@
 
 .home-card {
     margin: 20px;
-    height: 150px;
+    height: 100px;
     flex: 0 0 250px;
     font-size: 1.2em;
     align-items: center;
     display: flex;
     justify-content: center;
-    background-color: transparent;
     position: relative;
-    perspective: 1000px;
 }
+.home-card-outer {
+    width: 100%;
+    height: 100%;
+    padding:5px;
+    background-color: hsl(33, 94%, 55%,0.1);
+    cursor:pointer
+}
+.home-card-outer:hover {
 
+    background-color: blue !important;
+}
 .home-card-inner {
     display: flex;
     align-items: center;
@@ -23,11 +31,13 @@
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    background-color: transparent;
-    
+    background-color: #fff;
+    flex-direction: column;
+    padding:5px;
 }
 
-.home-card-front{
+
+/* .home-card-front{
     background-color:#fff;
 }
 
@@ -42,8 +52,8 @@
     color: var(--darkGrey2020);
     padding: 5px;
     
-}
-.home-card-front::after {
+}   */
+/* .home-card-front::after {
     display: block;
     content: attr(accManager);
     position: absolute;
@@ -54,25 +64,16 @@
 
 .home-card:hover .home-card-inner {
     transform: rotateY(180deg);
-}
+} */
 
-.home-card-outer {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    position: absolute;
-    background-color: hsl(33, 94%, 55%,0.1);
-}
+/* 
     .home-card-outer.pendingEstimate {
         background-color: hsl(360, 100%, 50%, 0.2);
-    }
+    } */
 
-.home-card:hover .home-card-outer {
-    /*transform: rotateX(180deg);*/
-}
+
 /* Position the front and back side */
-.home-card-front, .home-card-back {
+/* .home-card-front, .home-card-back {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,9 +89,9 @@
     font-weight: bold;
     z-index: 1;
     flex-wrap: wrap;
-}
+}  */
 
-.home-card-back {
+/* .home-card-back {
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
@@ -118,7 +119,7 @@
 }
 .home-card-button:hover {
     background-color: #37f704;
-}
+} */
 
 .home-addCustomerIcon {
     position: fixed;

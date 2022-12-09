@@ -23,9 +23,10 @@ const generateReferenceItems = (productName) => {
   loadFeatures();
 };
 
-const showReference = (name) => {
+const showReference = (el, name) => {
   //referenceUpdate();
   generateReferenceItems(name);
+  manageNavigation(el);
 };
 
 const loadFeatures = () => {
@@ -153,6 +154,17 @@ const createReferenceObject = (name) => {
   currentFeatures.push(newItem);
   loadFeatures();
   showItemDetails(newID);
+};
+
+const manageNavigation = (el) => {
+  $(".ref-header-buttons").css({
+    borderColor: "#000",
+    color: "#000",
+    backgroundColor: "#fff",
+  });
+  el.style.borderColor = "blue";
+  el.style.backgroundColor = "blue";
+  el.style.color = "white";
 };
 
 // const showTotalReferences = (total) =>{

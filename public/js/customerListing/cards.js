@@ -36,33 +36,43 @@ const generateHomeCards = {
     let pendingEstimate = "";
     //if (isPendingEstimate(customer))
     //    pendingEstimate = "pendingEstimate";
-    let ct = `<div id='card${_id}' CID='${_id}' class='home-card'>
-        <div class='home-card-outer ${pendingEstimate}'></div>
+
+    let ct = `<div id='card${_id}' CID='${_id}' obj_id='${_id}' class='home-card'>
+      <div class='home-card-outer ${pendingEstimate}'>
         <div class='home-card-inner'> 
-            <div id='card-front${_id}'  CID='${_id}' class='home-card-front'>
-                <div style='width:100%'>${name}</div>
-                <div style='font-size:.8em'>$${projectEstimate}</div>
-            </div>
-            <div id='card-back${_id}' customerID='${_id}' class='home-card-back'>
-                <div>${name}</div>
-                
-                <div class='home-card-button-container'>`;
-
-    if (customer.folder)
-      ct += ` <button class='home-card-button' targetURL='${customer.folder}' target='folder')>
-                        <i class='fa fa-folder-open' aria-hidden='true'></i>
-                    </button>`;
-
-    ct += `<button class='home-card-button' obj_id='${_id}' targetName='${name}' target='engineering'>
-                        <i class='fa fa-cogs' aria-hidden='true'></i>
-                    </button>
-                    <button class='home-card-button' targetName='${name}' obj_id='${_id}' target='info'>
-                        <i class='fa fa-info' aria-hidden='true'></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div >`;
+        <div  style='width:100%'>${name}</div>
+        <div style='font-size:.8em'>$${projectEstimate}</div>
+      </div>
+    </div >`;
     $(".content").append(ct);
+
+    // let ct = `<div id='card${_id}' CID='${_id}' class='home-card'>
+    //     <div class='home-card-outer ${pendingEstimate}'></div>
+    //     <div class='home-card-inner'>
+    //         <div id='card-front${_id}'  CID='${_id}' class='home-card-front'>
+    //             <div style='width:100%'>${name}</div>
+    //             <div style='font-size:.8em'>$${projectEstimate}</div>
+    //         </div>
+    //         <div id='card-back${_id}' customerID='${_id}' class='home-card-back'>
+    //             <div>${name}</div>
+
+    //             <div class='home-card-button-container'>`;
+
+    // if (customer.folder)
+    //   ct += ` <button class='home-card-button' targetURL='${customer.folder}' target='folder')>
+    //                     <i class='fa fa-folder-open' aria-hidden='true'></i>
+    //                 </button>`;
+
+    // ct += `<button class='home-card-button' obj_id='${_id}' targetName='${name}' target='engineering'>
+    //                     <i class='fa fa-cogs' aria-hidden='true'></i>
+    //                 </button>
+    //                 <button class='home-card-button' targetName='${name}' obj_id='${_id}' target='info'>
+    //                     <i class='fa fa-info' aria-hidden='true'></i>
+    //                 </button>
+    //             </div>
+    //         </div>
+    //     </div>
+    //     </div >`;
+    // $(".content").append(ct);
   },
 };

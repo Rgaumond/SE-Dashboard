@@ -17,12 +17,12 @@
 </head>
 <body>
   <div id="reference-header">
-    <div class="header-buttons" onclick="showAddReference()">Add reference</div>
-    <div class="header-buttons" onclick="showReference('WIF')">WIF</div>
-    <div class="header-buttons" onclick="showReference('CIC')">CIC</div>
-    <div class="header-buttons" onclick="showReference('WIF FR')">WIF FR</div>
-    <div class="header-buttons" onclick="showReference('CIC FR')">CIC FR</div>
-    <div class="header-buttons" onclick="window.open('./').focus">Return</div>
+    <div class="ref-header-buttons ref-action-button" onclick="showAddReference()">+</div>
+    <div class="ref-header-buttons" onclick="showReference(this,'WIF')">WIF</div>
+    <div class="ref-header-buttons" onclick="showReference(this,'CIC')">CIC</div>
+    <div class="ref-header-buttons" onclick="showReference(this,'WIF FR')">WIF FR</div>
+    <div class="ref-header-buttons" onclick="showReference(this,'CIC FR')">CIC FR</div>
+    <div class="ref-header-buttons" onclick="window.open('./').focus">Return</div>
     <div id="reference-title"></div>
   </div>
   <div id="main">
