@@ -4,7 +4,7 @@ jQuery(function () {
 
 const referenceInitReponseHandler = (data) => {
   references = data;
-
+  //loadApps();
   //referenceDeleteAll();
 
   // $.each(references, (index, ref) => {

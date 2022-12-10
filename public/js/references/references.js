@@ -4,7 +4,7 @@ let currentProductName;
 let currentFeatures = [];
 let currentFeature = {};
 let section_built = false;
-//let reference = {};
+
 //referenceList();
 
 const generateReferenceItems = (productName) => {
@@ -143,17 +143,19 @@ const referenceValidate = () => {
 //     }
 // }
 
-const createReferenceObject = (name) => {
-  let newID = Date.now();
+const createReferenceObject = (name, index) => {
+  let newID = Date.now() + index;
   let newItem = {};
   newItem._id = newID;
   newItem.name = name;
   newItem.product = currentProductName;
   newItem.details = "";
+  console.log(newItem);
+
   referenceAdd(newItem);
-  currentFeatures.push(newItem);
-  loadFeatures();
-  showItemDetails(newID);
+  //currentFeatures.push(newItem);
+  // loadFeatures();
+  //showItemDetails(newID);
 };
 
 const manageNavigation = (el) => {
@@ -176,3 +178,37 @@ const manageNavigation = (el) => {
 //      referenceDelete(id,index);
 //     }
 // };
+
+let softwares = [
+  "Office365 (MS)",
+  "Intune (MS)",
+  "Sentinel (MS)",
+  "ADFS (ms)",
+  "Sailpoint",
+  "Ping",
+  "Exchange (MS)",
+  "Azure AD (MS)",
+  "AD (MS)",
+  "AADConnect (MS)",
+  "Defender (MS)",
+  "GitHub",
+  "LDAP",
+  "Zimbra",
+  "Goolge Cast",
+  "Alfresco",
+  "Zoom",
+  "Novel",
+  "B2C (MS)",
+  "Jamf",
+  "Servers Unix",
+  "Servers Windows",
+  "SAP",
+  "IBM",
+  "Hybrid (MS)",
+];
+const loadApps = () => {
+  currentProductName = "APPS";
+  $.each(softwares, (index, soft) => {
+    createReferenceObject(soft, index);
+  });
+};
