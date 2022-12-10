@@ -104,7 +104,7 @@ const showAddReference = () => {
     let ct = `<div class='dialog-card'>
         ${buildInput("referenceName", "", "To Do Name")}`;
     dialog.load("New To Do", ct, referenceValidate, "Add");
-    $("#referenceName").focus();
+    $("#input-referenceName").focus();
   } else alert("Please select a reference");
 };
 
@@ -124,7 +124,7 @@ const showAddReference = () => {
 // };
 
 const referenceValidate = () => {
-  if ($("#input-cieName").val() === "") alert("You must enter a name");
+  if ($("#input-referenceName").val() === "") alert("You must enter a name");
   else {
     createReferenceObject($("#input-referenceName").val());
     dialog.disintegrate();
