@@ -144,7 +144,7 @@ const referenceValidate = () => {
 // }
 
 const createReferenceObject = (name, index) => {
-  let newID = Date.now() + index;
+  let newID = Date.now();
   let newItem = {};
   newItem._id = newID;
   newItem.name = name;

@@ -24,6 +24,7 @@ router.route("/view").post(async (req, res) => {
 // ADD CUSTOMER
 router.route("/add").post(async (req, res) => {
   let newToDO = new Reference(req.body);
+  console.log(newToDO);
   await newToDO.save(function (err) {
     if (err) return console.error(err);
   });
@@ -35,6 +36,7 @@ router.route("/update").post(async (req, res) => {
   let payload = req.body;
   let id = payload._id;
   delete payload._id;
+  console.log(payload);
   await Reference.updateOne({ _id: id }, payload, function (err) {
     if (err) return console.error(err);
   });
@@ -45,6 +47,18 @@ router.route("/update").post(async (req, res) => {
 router.route("/delete").post(async (req, res) => {
   let payload = req.body._id;
   await Reference.deleteOne({ _id: payload })
+    .then(function () {
+      res.send("deleted");
+    })
+    .catch(function (error) {
+      console.log(error); // Failure
+    });
+});
+
+// DELETE
+router.route("/deleteCrap").post(async (req, res) => {
+  //let payload = req.body._id;
+  await Reference.deleteOne({ name: "FGA" })
     .then(function () {
       res.send("deleted");
     })

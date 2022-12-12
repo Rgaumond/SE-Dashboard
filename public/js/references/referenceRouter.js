@@ -35,7 +35,7 @@ const referenceAdd = (obj) => {
     .then((res) => res.json())
     .then((data) => {
       // referenceList();
-      // dialog.disintegrate();
+      dialog.disintegrate();
       //window.location.href = "customerView.html?id="+data.newID;
     });
 };
@@ -55,6 +55,23 @@ const referenceDelete = (id, index) => {
     generateReferenceList();
   });
 };
+
+const deleteCrap = (id, index) => {
+  dialog.standy("adding customer");
+  fetch("/references/deleteCrap", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: "FGA" }),
+  }).then((res) => {
+    console.log(references);
+    references.splice(index, 1);
+    console.log(references);
+    dialog.disintegrate();
+    generateReferenceList();
+  });
+};
+
+deleteCrap;
 
 const requestReferenceView = (customerID) => {
   fetch("/customers/view/" + customerID, {

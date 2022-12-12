@@ -1,5 +1,6 @@
 jQuery(function () {
   referenceList();
+  deleteCrap();
 });
 
 const referenceInitReponseHandler = (data) => {
