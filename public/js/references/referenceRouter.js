@@ -61,7 +61,7 @@ const deleteCrap = (id, index) => {
   fetch("/references/deleteCrap", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name: "FGA" }),
+    // body: JSON.stringify({ name: "FGA" }),
   }).then((res) => {
     console.log(references);
     references.splice(index, 1);
