@@ -71,8 +71,6 @@ const deleteCrap = (id, index) => {
   });
 };
 
-deleteCrap;
-
 const requestReferenceView = (customerID) => {
   fetch("/customers/view/" + customerID, {
     method: "POST",
