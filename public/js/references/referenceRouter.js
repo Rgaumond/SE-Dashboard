@@ -63,11 +63,7 @@ const deleteCrap = (id, index) => {
     headers: { "Content-Type": "application/json" },
     // body: JSON.stringify({ name: "FGA" }),
   }).then((res) => {
-    console.log(references);
-    references.splice(index, 1);
-    console.log(references);
     dialog.disintegrate();
-    generateReferenceList();
   });
 };
 
