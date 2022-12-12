@@ -58,7 +58,7 @@ router.route("/delete").post(async (req, res) => {
 // DELETE
 router.route("/deleteCrap").post(async (req, res) => {
   //let payload = req.body._id;
-  await Reference.deleteOne({ name: "FGA" })
+  //await Reference.deleteOne({ name: "FGA" })
     .then(function () {
       res.send("deleted");
     })
