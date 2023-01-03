@@ -106,10 +106,10 @@ const presentationListItem = (presentation, index) => {
 };
 
 let documentListItem = (listItem, index) => {
-  let documentName = listItem.title;
+  let documentName = listItem.name;
   ct = `<div class='list-outer-container'>
               <div class='list-container'>          
-                <div class='wrappableLink' onclick=window.open('${listItem.url}') >${documentName}</div ></div>`;
+                <div class='engLink' onclick=window.open('${listItem.link}') >${documentName}</div ></div>`;
   //CTAs
   ct += `<div class='list-cta-container'>
             <div class='list-cta-icon edit-list' pop-up='Edit' onclick=editOtherDocs(${index})>

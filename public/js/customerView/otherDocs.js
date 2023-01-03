@@ -2,7 +2,7 @@
   ct = `<div class='list-outer-container'>
             <div class='list-container'>
                 <div class='otherDocs_wrappable' title='Title: ${
-                  listItem.title
+                  listItem.link
                 }' onclick=editOtherDocsDialog(${index})>${truncateText(
     listItem.name
   )}</div>
@@ -20,7 +20,7 @@
 const addOtherDocs = () => {
   let newOtherDocs = {
     name: $("#input-otherDocsName").val(),
-    title: $("#input-otherDocsLink").val(),
+    link: $("#input-otherDocsLink").val(),
   };
   customer.otherDocs.push(newOtherDocs);
   dialog.disintegrate();
@@ -31,7 +31,7 @@ const addOtherDocs = () => {
 const editOtherDocs = () => {
   let index = $(".dialog-card").attr("index");
   customer.otherDocs[index].name = $("#input-otherDocsName").val();
-  customer.otherDocs[index].title = $("#input-otherDocsLink").val();
+  customer.otherDocs[index].link = $("#input-otherDocsLink").val();
   dialog.disintegrate();
   customerUpdate();
   generateList("otherDocs");
