@@ -3,12 +3,11 @@
   justify-content: flex-end;
 }
 
-#reference-title{
+#reference-title {
   font-size: 2em;
-  color:blue;
-  position:absolute;
-  left:30%;
-
+  color: blue;
+  position: absolute;
+  left: 10%;
 }
 #main {
   grid-template-columns: max-content 1fr;
@@ -36,20 +35,20 @@
   margin: 10px;
 }
 
-.ref-action-button{
-  background:green ;
-  color:#fff;
+.ref-action-button {
+  background: green;
+  color: #fff;
 }
 .ref-header-buttons:hover {
   border-color: blue;
   background-color: lightblue;
 }
 
-.ql-editor{
+.ql-editor {
   font-size: 16px;
 }
 
 .ref-note-title {
-  font-size:1.5em;
+  font-size: 1.5em;
   color: blue;
 }
