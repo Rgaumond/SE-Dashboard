@@ -112,7 +112,7 @@ let documentListItem = (listItem, index) => {
                 <div class='engLink' onclick=window.open('${listItem.link}') >${documentName}</div ></div>`;
   //CTAs
   ct += `<div class='list-cta-container'>
-            <div class='list-cta-icon edit-list' pop-up='Edit' onclick=editOtherDocs(${index})>
+            <div class='list-cta-icon edit-list' pop-up='Edit' onclick=editOtherDocsDialog(${index})>
                 <i class='fa fa-pencil' aria-hidden='true'></i>
             </div>
             <div class='list-cta-icon delete-list' pop-up='Delete' onclick=deleteOtherDocs(${index})>

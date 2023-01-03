@@ -1,11 +1,7 @@
 ﻿const otherDocsListItem = (listItem, index) => {
   ct = `<div class='list-outer-container'>
             <div class='list-container'>
-                <div class='otherDocs_wrappable' title='Title: ${
-                  listItem.link
-                }' onclick=editOtherDocsDialog(${index})>${truncateText(
-    listItem.name
-  )}</div>
+                <div class='otherDocs_wrappable' title='Title: ${listItem.link}' </div>
     </div>`;
 
   //CTAs

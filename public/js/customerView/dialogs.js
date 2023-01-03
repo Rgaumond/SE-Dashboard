@@ -27,7 +27,19 @@ const editContactDialog = (index) => {
             ${buildInput("contactTitle", title, "Job title")}
             ${buildTextArea("contactDetails", details, "Other details")}</div>`;
   dialog.load("Edit contact", ct, editContact, "Edit");
-  $("#select-contactName").focus();
+  $("#input-contactName").focus();
+};
+
+const editOtherDocsDialog = (index) => {
+  const { name, link } = customer.otherDocs[index];
+  let ct = `<div class='dialog-card' index=${index}>${buildInput(
+    "otherDocsName",
+    name,
+    "Name"
+  )}
+            ${buildInput("otherDocsLink", link, "URL")}</div>`;
+  dialog.load("Edit document", ct, editOtherDocs, "Edit");
+  $("#input-otherDocsName").focus();
 };
 
 const addCustomercontactsDialog = () => {
