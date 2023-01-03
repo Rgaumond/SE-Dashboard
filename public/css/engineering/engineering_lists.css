@@ -1,107 +1,105 @@
 ﻿.list-cta-icon {
-    position: relative;
+  position: relative;
 }
 
 .list-cta-icon.list-header {
-    position: relative;
+  position: relative;
 }
 
 .list-cta-icon:hover {
-    font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .list-cta-icon:hover::before {
-    display: block;
+  display: block;
 }
 
 .list-cta-icon::before {
-    content: attr(pop-up);
-    position: absolute;
-    background: var(--orange2020);
-    color: #fff;
-    padding: 3px 5px;
-    border-radius: 5px;
-    top: 0;
-    right: 110%;
-    display: none;
-    font-weight: initial;
+  content: attr(pop-up);
+  position: absolute;
+  background: var(--orange2020);
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 5px;
+  top: 0;
+  right: 110%;
+  display: none;
+  font-weight: initial;
 }
 
 .list-outer-container {
-    display: grid;
-    grid-template-columns: 90% 1fr;
-    border-top: 1px solid #fff;
-    padding: 5px 0;
-    position: relative;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 90% 1fr;
+  border-top: 1px solid #fff;
+  padding: 5px 0;
+  position: relative;
+  align-items: center;
 }
 
 .list-outer-container:hover .list-cta-container {
-    display: flex;
+  display: flex;
 }
 
 .list-container {
-    position: relative;
-    font-size:1em;
+  position: relative;
+  font-size: 1em;
 }
 
 .list-cta-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: .8em;
-    display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 0.8em;
+  display: none;
 }
 
 .contact_wrappable {
-    width: 80%;
-    cursor:pointer;
+  width: 80%;
+  cursor: pointer;
 }
 .contact_wrappable:hover {
-    color:blue;
-    text-decoration:underline;
+  color: blue;
+  text-decoration: underline;
 }
 .contact_wrappable::before {
-    content: attr(title);
-    position: absolute;
-    background: var(--orange2020);
-    color: #fff;
-    padding: 3px 5px;
-    border-radius: 5px;
-    top: 0;
-    right: 110%;
-    display: none;
-    font-weight: initial;
+  content: attr(title);
+  position: absolute;
+  background: var(--orange2020);
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 5px;
+  top: 0;
+  right: 110%;
+  display: none;
+  font-weight: initial;
 }
 
 .contact_wrappable:hover::before {
-    display: block;
+  display: block;
 }
 
 .wrappableLink {
-    width: 80%;
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
+  width: 80%;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }
-
 
 .view-list {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: green;
-    cursor: pointer;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: green;
+  cursor: pointer;
 }
 
-
 .edit-list {
-    color: green;
-    cursor: pointer;
+  color: green;
+  cursor: pointer;
 }
 
 .delete-list {
-    color: red;
-    cursor: pointer;
+  color: red;
+  cursor: pointer;
 }

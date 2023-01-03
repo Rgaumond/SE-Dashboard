@@ -1,30 +1,70 @@
-.to-do-list-outer-container{
-    color:rgb(8, 8, 116);
-    padding: 10px 0;
+.to-do-list-outer-container {
+  color: rgb(8, 8, 116);
+  padding: 10px 0;
 }
 
-.to-do-list-container{
-    background-color: white;
-    padding: 5px 10px;
-    cursor:pointer;
+.to-do-list-container {
+  background-color: white;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.to-do-list-title-container{
-    display:flex;
+.to-do-list-title-container {
+  display: flex;
 }
 
-
-.to-do-delete-list{
-    color:red;
-    padding-left:5px;
-    font-size:.8em;
+.to-do-delete-list {
+  color: red;
+  padding-left: 5px;
+  font-size: 0.8em;
 }
 
-.to-do-list-date{
-    font-size: .8em;
+.to-do-list-date {
+  font-size: 0.8em;
 }
 
-.to-do-list-details{
-    white-space:pre-wrap;
-    font-size: .5em;
+.to-do-list-details {
+  white-space: pre-wrap;
+  font-size: 0.5em;
+}
+
+.list-outer-container {
+  display: grid;
+  grid-template-columns: 90% 1fr;
+  border-top: 1px solid #fff;
+  padding: 5px 0;
+  position: relative;
+  align-items: center;
+}
+
+.list-cta-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 0.8em;
+  display: none;
+}
+.list-outer-container:hover .list-cta-container {
+  display: flex;
+}
+
+.edit-list {
+  color: green;
+  cursor: pointer;
+}
+
+.delete-list {
+  color: red;
+  cursor: pointer;
+}
+
+.edit-list {
+  color: green;
+  cursor: pointer;
+}
+
+.delete-list {
+  color: red;
+  cursor: pointer;
 }
