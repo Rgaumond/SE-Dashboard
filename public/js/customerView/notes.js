@@ -38,10 +38,7 @@ const buildNoteSection = (propName, label) => {
     let containerID = quill.container.id;
     let content = $("#" + containerID + " .ql-editor").html();
     customer[propName] = content;
-    if (quill.charCount > 10) {
-      quill.charCount = 0;
-      customerUpdate(customer);
-    }
+    customerUpdate(customer);
   });
   $(`#noteContainer-${propName} .ql-toolbar`).prepend(toolbar(label, propName));
 };
