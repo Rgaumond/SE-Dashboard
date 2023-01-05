@@ -6,7 +6,7 @@ const searchSchema = new mongoose.Schema(
     time: String,
     date: String,
     activity: String,
-    customerID: Number,
+    customerName: String,
   },
   { collection: "hero" }
 );

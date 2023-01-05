@@ -1,14 +1,12 @@
-let heros = [];
-//let hero = {};
-
-const heroInitReponseHandler = (heroResult) => {
-  heros = heroResult.filter((obj) => {
-    return obj.customerID === customer._id;
-  });
+const heroInitReponseHandler = () => {
   showTotalHeros(heros.length);
 };
 
 const showAddHero = () => {
+  let customerList = ArrayUtilities.sortByTextValue(customers, "name");
+  $.each(customerList, (index, cust) => {
+    cust.text = cust.name;
+  });
   let ct = `<div class='dialog-card'>
         ${buildInput("heroTargetDate", "", "Target Date")}
         ${buildSelect(
@@ -20,7 +18,8 @@ const showAddHero = () => {
           "heroTypeSelect",
           ArrayUtilities.sortByTextValue(heroTypesOptions.options, "text"),
           "Hero Types"
-        )}</div>`;
+        )}
+        ${buildSelect("customerNameSelect", customerList, "Customer")}</div>`;
   dialog.load("New Hero", ct, heroValidate, "Add", enableDatePicker);
   $("#heroName").focus();
 };
@@ -45,12 +44,12 @@ const generateHeroList = () => {
     let ct = `<div class='to-do-list-outer-container' >
             <div class='to-do-list-container' style='min-width:300px;font-size:1.4em'>
                 <div class='to-do-list-title-container' >
-                    <div class='to-do-list-title'>${hero.activity}</div>
+                    <div class='to-do-list-title'>${hero.customerName}&nbsp;&nbsp;&nbsp;<span style='font-size:.8em'>${hero.activity}&nbsp;&nbsp;&nbsp;<b>Date:</b> <span style='font-size:.8em'>${hero.date}</span>&nbsp;&nbsp;&nbsp;<b>Time:</b><span style='color:blue'>${hero.time} hour</span></div>
                     <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick="confirmDeleteHero(${hero._id},${index},'${hero.activity}')">
-                        <i class='fa fa-trash' aria-hidden='true'></i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-trash' aria-hidden='true'></i>
                     </div>
                 </div>            
-                <div class='to-do-list-date' >Date: ${hero.date} Time:${hero.time}</div>
+               
             </div>
         </div>`;
     //CTAs
@@ -61,7 +60,7 @@ const generateHeroList = () => {
     // </div></div>`;
     finalCt += ct;
   });
-  dialog.load("To Do List", finalCt);
+  dialog.load("Heros List", finalCt);
 };
 
 const heroValidate = () => {
@@ -76,7 +75,9 @@ const heroValidate = () => {
     tempObject.time = $("#select-heroTimeSelect option:selected").text();
     tempObject.activity = $("#select-heroTypeSelect option:selected").text();
     tempObject.date = $("#input-heroTargetDate").val();
-    tempObject.customerID = customer._id;
+    tempObject.customerName = $(
+      "#select-customerNameSelect option:selected"
+    ).text();
     dialog.disintegrate();
     heroAdd(tempObject);
   }

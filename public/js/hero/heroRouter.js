@@ -6,7 +6,8 @@ const heroList = () => {
   })
     .then((res) => res.json())
     .then((data) => {
-      heroInitReponseHandler(data.heros);
+      heros = data.heros;
+      heroInitReponseHandler();
     });
 };
 

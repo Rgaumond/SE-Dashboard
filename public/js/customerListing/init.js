@@ -15,16 +15,14 @@ $.ajax(settings).done(function (response) {
 
 $(document).ready(function () {
   customers = [];
-  $(document).ready(function () {
-    view = "home";
-    document.title = "Solutions Engineering";
-    dialog.standy("Loading Customers");
-    styleListingHeader();
-    buildCustomerFilterInputs();
-    initiateRootEvents();
-    dialog.disintegrate();
-    applyfilter();
-  }, window);
+  view = "home";
+  document.title = "Solutions Engineering";
+  dialog.standy("Loading Customers");
+  styleListingHeader();
+  buildCustomerFilterInputs();
+  initiateRootEvents();
+  dialog.disintegrate();
+  applyfilter();
 }, window);
 
 const addCustomerButton = () => {

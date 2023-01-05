@@ -17,8 +17,7 @@ const homecardHandler = () => {
   });
 };
 
-const listingInitReponseHandler = (data) => {
-  customers = data;
+const listingInitReponseHandler = () => {
   printCards();
   home_events.initiate();
   //runFix();
