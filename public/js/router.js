@@ -89,7 +89,8 @@ const customerListFilter = (query) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      listingInitReponseHandler(data.customers);
+      customers = data.customers;
+      listingInitReponseHandler();
     });
 };
 

@@ -2,8 +2,9 @@
   let name = "";
   if (localStorage.getItem("engineeringCustomerName"))
     name = localStorage.getItem("engineeringCustomerName");
-  if (name === "") customerList(listingInitReponseHandler);
-  else if (!/[^a-z]/i.test(name)) {
+  if (name === "") {
+    customerList(listingInitReponseHandler);
+  } else if (!/[^a-z]/i.test(name)) {
     let filterObj = {};
     filterObj.name = name;
     customerListFilter(filterObj);
