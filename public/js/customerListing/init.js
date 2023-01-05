@@ -9,9 +9,9 @@ var settings = {
   data: '{"client_id":"q26PPrcnJItOqyF3ecr7G0fO30tD8gE0","client_secret":"-RHPUN7MVFmy_oLP93SwkqDTd-c7kDvyhm4Skxa13pW_X2773rPm7kH_633pZ8FP","audience":"https://richardtravel0-travel0.auth0.cloud/api","grant_type":"client_credentials"}',
 };
 
-$.ajax(settings).done(function (response) {
-  console.log("test" + response);
-});
+// $.ajax(settings).done(function (response) {
+//   console.log("test" + response);
+// });
 
 $(document).ready(function () {
   customers = [];
