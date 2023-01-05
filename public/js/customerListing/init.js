@@ -22,6 +22,7 @@ $(document).ready(function () {
   buildCustomerFilterInputs();
   initiateRootEvents();
   dialog.disintegrate();
+  applyfilter();
   heroList();
 }, window);
 
