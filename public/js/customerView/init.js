@@ -6,7 +6,7 @@
 }, window);
 
 const viewInitResponseHandler = (data) => {
-  customerList();
+  customerList(listingInitReponseHandler);
   customer = data.customer;
   document.title = customer.name;
   generateInfoElement();
