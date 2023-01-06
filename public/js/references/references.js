@@ -32,6 +32,31 @@ const showReference = (el, name) => {
 const loadFeatures = () => {
   let finalCt = "";
   let sortedFeatures = ArrayUtilities.sortByName(currentFeatures);
+  const final = sortedFeatures.reduce((finalSoFar, ref) => {
+    const thisUserFirstChar = ref.name[0];
+    if (finalSoFar.length === 0) addHeader();
+    else {
+      const lastUserFirstChar = finalSoFar[finalSoFar.length - 1].name[0];
+      if (lastUserFirstChar !== thisUserFirstChar) addHeader();
+    }
+    finalSoFar.push(ref);
+    return finalSoFar;
+    function addHeader() {
+      finalSoFar.push({ header: thisUserFirstChar });
+    }
+  }, []);
+
+  $.each(final, (index, feature) => {
+    let ct = "";
+    if (feature.header) ct = `<div class='header' ">${feature.header}</div>`;
+    else {
+      let truncatedName = truncateText(feature.name);
+      ct = `<div class='item' onclick="showItemDetails(${feature._id})">${truncatedName}</div>`;
+    }
+    console.log(finalCt);
+    finalCt += ct;
+  });
+
   $.each(sortedFeatures, (index, feature) => {
     let truncatedName = truncateText(feature.name);
     let ct = `<div class='item' onclick="showItemDetails(${feature._id})">${truncatedName}</div>`;
