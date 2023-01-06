@@ -18,7 +18,7 @@ const generateReferenceItems = (productName) => {
   }
 
   currentFeatures = references.filter((obj) => {
-    return obj.product === productName;
+    return obj.product.toLowerCase() === productName.toLowerCase();
   });
   loadFeatures();
 };
@@ -53,7 +53,6 @@ const loadFeatures = () => {
       let truncatedName = truncateText(feature.name);
       ct = `<div class='item' onclick="showItemDetails(${feature._id})">${truncatedName}</div>`;
     }
-    console.log(finalCt);
     finalCt += ct;
   });
 
