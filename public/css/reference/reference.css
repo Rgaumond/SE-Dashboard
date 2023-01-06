@@ -30,6 +30,8 @@
   color: blue;
   font-size: 1.3em;
   text-align: center;
+  max-width: 200px;
+  border-bottom: 1px solid rgb(203, 199, 199);
 }
 
 .ref-header-buttons {
