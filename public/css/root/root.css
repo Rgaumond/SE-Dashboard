@@ -99,8 +99,8 @@ body {
 
 ::-webkit-scrollbar {
   height: 12px;
-  width: 12px;
-  background: #000;
+  width: 5px;
+  background: rgb(215, 219, 245);
 }
 
 ::-webkit-scrollbar-thumb {
