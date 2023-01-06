@@ -56,19 +56,22 @@ const loadFeatures = () => {
     finalCt += ct;
   });
 
-  $.each(sortedFeatures, (index, feature) => {
-    let truncatedName = truncateText(feature.name);
-    let ct = `<div class='item' onclick="showItemDetails(${feature._id})">${truncatedName}</div>`;
-    finalCt += ct;
-  });
+  // $.each(sortedFeatures, (index, feature) => {
+  //   let truncatedName = truncateText(feature.name);
+  //   let ct = `<div class='item' onclick="showItemDetails(${feature._id})">${truncatedName}</div>`;
+  //   finalCt += ct;
+  // });
   $("#navigator").html(finalCt);
 };
 
 const showItemDetails = (featureID) => {
   //referenceUpdate();
+
+  localStorage.setItem("refFeature", featureID);
   currentFeature = currentFeatures.find((object) => {
     return object._id === featureID;
   });
+  localStorage.setItem("refProduct", currentFeature.product);
   if (!currentFeature.details) currentFeature.details = "";
   $("#note-details .ql-editor").html(currentFeature.details);
   $(".note-container").show();
@@ -124,12 +127,14 @@ const toolbar = (label, propName) => {
 };
 
 const showAddReference = () => {
-  if (currentProductName !== undefined) {
-    let ct = `<div class='dialog-card'>
-        ${buildInput("referenceName", "", "To Do Name")}`;
-    dialog.load("New To Do", ct, referenceValidate, "Add");
-    $("#input-referenceName").focus();
-  } else alert("Please select a reference");
+  let productName = "";
+  currentProductName ? (productName = currentProductName) : (productName = "");
+
+  let ct = `<div class='dialog-card'>
+    ${buildInput("productName", productName, "Product Name")}
+        ${buildInput("featureName", "", "To Do Name")}`;
+  dialog.load("New To Do", ct, referenceValidate, "Add");
+  $("#input-referenceName").focus();
 };
 
 // const showEditReference = (index) => {
@@ -148,9 +153,14 @@ const showAddReference = () => {
 // };
 
 const referenceValidate = () => {
-  if ($("#input-referenceName").val() === "") alert("You must enter a name");
+  if ($("#input-productName").val() === "") alert("You must enter a product");
+  else if ($("#input-featureName").val() === "")
+    alert("You must enter a feature");
   else {
-    createReferenceObject($("#input-referenceName").val());
+    createReferenceObject(
+      $("#input-productName").val(),
+      $("#input-featureName").val()
+    );
     dialog.disintegrate();
   }
 };
@@ -167,12 +177,12 @@ const referenceValidate = () => {
 //     }
 // }
 
-const createReferenceObject = (name, index) => {
+const createReferenceObject = (product, feature) => {
   let newID = Date.now();
   let newItem = {};
   newItem._id = newID;
-  newItem.name = name;
-  newItem.product = currentProductName;
+  newItem.name = feature;
+  newItem.product = product;
   newItem.details = "";
   referenceAdd(newItem);
   currentFeatures.push(newItem);

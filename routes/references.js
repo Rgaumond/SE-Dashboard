@@ -23,12 +23,11 @@ router.route("/view").post(async (req, res) => {
 
 // ADD CUSTOMER
 router.route("/add").post(async (req, res) => {
-  let newToDO = new Reference(req.body);
-  console.log(newToDO);
-  await newToDO.save(function (err) {
+  let reference = new Reference(req.body);
+  await reference.save(function (err) {
     if (err) return console.error(err);
   });
-  res.send({ newToDO });
+  res.send({ reference });
 });
 
 //UPDATE

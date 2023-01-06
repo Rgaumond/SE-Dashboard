@@ -2,6 +2,10 @@
   display: flex;
   justify-content: flex-end;
 }
+#reference-navbar {
+  display: flex;
+  justify-content: flex-end;
+}
 
 #reference-title {
   font-size: 2em;

@@ -27,6 +27,8 @@ const referenceUpdate = (feature) => {
 /* ADDING */
 const referenceAdd = (obj) => {
   dialog.standy("adding reference");
+  localStorage.setItem("refProduct", obj.product);
+  localStorage.setItem("refFeature", obj.name);
   let currentItemID = fetch("/references/add", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -34,9 +36,10 @@ const referenceAdd = (obj) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      // referenceList();
+      localStorage.setItem("refFeature", data.reference._id);
+      console.log(data.reference._id);
       dialog.disintegrate();
-      //window.location.href = "customerView.html?id="+data.newID;
+      window.location.href = "references.html";
     });
 };
 
