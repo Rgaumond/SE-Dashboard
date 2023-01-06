@@ -12,10 +12,16 @@
 #main {
   grid-template-columns: max-content 1fr;
   display: grid;
+  overflow-y: hidden;
 }
 
 #navigator {
   border-right: 1px solid #000;
+  overflow-y: scroll;
+}
+
+#details {
+  overflow-y: scroll;
 }
 
 .item {
