@@ -84,15 +84,15 @@ generateSelectOptions(WIFs, cicProducstOptions, "IAM Type");
 
 let heroTypesOptions = {};
 let heroTypes = [
-  "Account Planning",
-  "Partner Enablement/Support",
-  "A Enablement/Licensing Discussion",
-  "Asset Development",
-  "Learning & Enablement",
-  "Travel",
-  "Marketing Event",
-  "Health Check (Commercial Only)",
-  "Product Migrations - OIE",
+  // "Account Planning",
+  // "Partner Enablement/Support",
+  // "A Enablement/Licensing Discussion",
+  // "Asset Development",
+  // "Learning & Enablement",
+  // "Travel",
+  // "Marketing Event",
+  // "Health Check (Commercial Only)",
+  // "Product Migrations - OIE",
   "Post-Sale Customer Support",
   "RFx Completion/Review",
   "Discovery",
@@ -101,7 +101,7 @@ let heroTypes = [
   "POC Build",
   "Demo/Presentation Delivery",
   "BVA Support",
-  "Architecture Development",
+  //"Architecture Development",
   "Mutual Delivery Plan (MDP)",
 ];
 generateSelectOptions(heroTypes, heroTypesOptions, "Hero Type");

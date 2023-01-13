@@ -19,13 +19,14 @@ const showAddHero = () => {
           ArrayUtilities.sortByTextValue(heroTypesOptions.options, "text"),
           "Hero Types"
         )}
-        ${buildSelect("customerNameSelect", customerList, "Customer")}</div>`;
+        ${buildSelect("customerNameSelect", customerList, "Customer")}
+        ${buildTextArea("heroDescription", "", "Description")}</div>`;
   dialog.load("New Hero", ct, heroValidate, "Add", enableDatePicker);
   $("#heroName").focus();
 };
 
 const enableDatePicker = () => {
-  $(`#input-heroTargetDate`).datepicker({
+  $("#input-heroTargetDate").datepicker({
     dateFormat: "dd-M-yy",
     changeMonth: true,
     changeYear: true,
@@ -45,11 +46,12 @@ const generateHeroList = () => {
             <div class='to-do-list-container' style='min-width:300px;font-size:1.4em'>
                 <div class='to-do-list-title-container' >
                     <div class='to-do-list-title'>${hero.customerName}&nbsp;&nbsp;&nbsp;<span style='font-size:.8em'>${hero.activity}&nbsp;&nbsp;&nbsp;<b>Date:</b> <span style='font-size:.8em'>${hero.date}</span>&nbsp;&nbsp;&nbsp;<b>Time:</b><span style='color:blue'>${hero.time} hour</span></div>
+                   
                     <div class='list-cta-icon to-do-delete-list' pop-up='Delete' onclick="confirmDeleteHero(${hero._id},${index},'${hero.activity}')">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-trash' aria-hidden='true'></i>
                     </div>
                 </div>            
-               
+                <div class='to-do-list-details' style='font-size:0.8em;color:#000'>${hero.description}</div>
             </div>
         </div>`;
     //CTAs
@@ -78,6 +80,7 @@ const heroValidate = () => {
     tempObject.customerName = $(
       "#select-customerNameSelect option:selected"
     ).text();
+    tempObject.description = $("#area-heroDescription").val();
     dialog.disintegrate();
     heroAdd(tempObject);
   }
@@ -89,6 +92,7 @@ const heroValidateEdit = () => {
     hero.name = $("#input-heroName").val();
     hero.details = $("#select-heroDetailsSelect").text();
     hero.targetDate = $("#input-heroTargetDate").text();
+    hero.description = $("#area-heroDescription").val();
     dialog.disintegrate();
     heroUpdate(hero);
   }
