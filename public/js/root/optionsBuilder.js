@@ -92,7 +92,7 @@ let heroTypes = [
   // "Travel",
   // "Marketing Event",
   // "Health Check (Commercial Only)",
-  // "Product Migrations - OIE",
+  "Product Migrations - OIE",
   "Post-Sale Customer Support",
   "RFx Completion/Review",
   "Discovery",
