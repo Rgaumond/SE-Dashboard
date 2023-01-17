@@ -43,6 +43,7 @@ let specialists = [
   "Jordan Taylor",
   "Alexander Spotnitz",
   "Louis Migault",
+  "Andrew Whitman",
 ];
 generateSelectOptions(specialists, specialistsOptions, "SRD");
 
