@@ -91,6 +91,8 @@ const buildNoteSection = () => {
   let propName = "details";
   let label = "details";
   $("#details").append(noteContainer(propName));
+  var Size = Quill.import("attributors/style/size");
+  Quill.register(Size, true);
   var quill = new Quill(`#note-${propName}`, {
     modules: {
       toolbar: [
@@ -98,6 +100,7 @@ const buildNoteSection = () => {
         [{ list: "ordered" }, { list: "bullet" }],
         [{ color: [] }, { background: [] }],
         ["link", "image"],
+        [{ size: [] }],
       ],
     },
     theme: "snow",
