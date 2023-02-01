@@ -7,6 +7,7 @@ const searchSchema = new mongoose.Schema(
     date: String,
     activity: String,
     customerName: String,
+    customerID: Number,
     description: String,
   },
   { collection: "hero" }

@@ -37,7 +37,7 @@ const referenceAdd = (obj) => {
     .then((res) => res.json())
     .then((data) => {
       localStorage.setItem("refFeature", data.reference._id);
-      console.log(data.reference._id);
+      //  console.log(data.reference._id);
       dialog.disintegrate();
       window.location.href = "references.html";
     });
@@ -51,9 +51,9 @@ const referenceDelete = (id, index) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ _id: id }),
   }).then((res) => {
-    console.log(references);
+    //  console.log(references);
     references.splice(index, 1);
-    console.log(references);
+    //   console.log(references);
     dialog.disintegrate();
     generateReferenceList();
   });
@@ -92,7 +92,7 @@ const referenceMigrate = (ref) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      //   console.log(data);
     });
 };
 

@@ -44,16 +44,19 @@ const heroUpdate = (hero) => {
 };
 
 /* DELETING */
-const heroDelete = (id, index) => {
+const heroDelete = (id, index, callback) => {
   dialog.standy("adding customer");
   fetch("/heros/delete", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ _id: id }),
   }).then((res) => {
-    heros.splice(index, 1);
+    $.each(heros, (index, hero) => {
+      if (hero._id === id) heros.splice(index, 1);
+    });
+
     dialog.disintegrate();
-    generateHeroList();
+    if (callback) callback();
   });
 };
 

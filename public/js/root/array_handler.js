@@ -78,7 +78,7 @@
   },
   sortByTextValue(objs, txt) {
     $.each(objs, (index, obj) => {
-      console.log(obj.name);
+      // console.log(obj.name);
     });
     return objs.sort((a, b) =>
       a[txt].toLowerCase() > b[txt].toLowerCase()

@@ -131,7 +131,7 @@ let heroTime = [
   "5.5",
   "6",
 ];
-
+generateSelectOptions(heroTime, heroTimeOptions, "Hero Time");
 // let sdrOptions = {
 //     "name": "SRD",
 //     "options": [{ "value": 1, "text": "Yves Régimbald" }, { "value": 2, "text": "Charles Kijek" },

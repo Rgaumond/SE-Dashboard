@@ -10,7 +10,7 @@ const showSearchDialog = () => {
 
 const searchReference = () => {
   var arrayOfLines = [];
-  console.log("input" + $("#input-search").val());
+  //console.log("input" + $("#input-search").val());
   if ($("#input-search").val().includes(" "))
     arrayOfLines = $("#input-search").val().split(" ");
   else arrayOfLines.push($("#input-search").val());

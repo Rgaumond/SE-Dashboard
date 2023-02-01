@@ -1,43 +1,38 @@
 ﻿const engineering_events = {
-    initiate() {
-        $(window).on('resize', function () {
-            setStickyNotesHeight();
-        });
-        $("#save-button").on('click', function () {
-            customerUpdate();
-        });        
-    }
+  initiate() {
+    $(window).on("resize", function () {
+      setStickyNotesHeight();
+    });
+    $("#save-button").on("click", function () {
+      customerUpdate();
+    });
+  },
 };
 
 const deleteCustomerValidation = () => {
-    if (confirm("Delete!")) {
-        customerDelete();
-    }
+  if (confirm("Delete!")) {
+    customerDelete();
+  }
 };
 
-
-const toggleView=()=>{
-    if(!discoveryInitiated)
-        initiatedDiscovery();
-    if(currentView==="discovery"){
-         currentView = "details";
-         $("#discovery-container").hide();
-    }        
-    else{
-        currentView = "discovery";
-        $("#discovery-container").css({"display":"flex"});
-    }
-
-    
+const toggleView = () => {
+  if (!discoveryInitiated) initiatedDiscovery();
+  if (currentView === "discovery") {
+    currentView = "details";
+    $("#discovery-container").hide();
+  } else {
+    currentView = "discovery";
+    $("#discovery-container").css({ display: "flex" });
+  }
 };
 
-const addToDiscoveryNotes = (propName, note) =>{
-    let original = $(`#note-${propName} .ql-editor`).html();
-    $(`#note-${propName} .ql-editor`).html(`${original}<p><strong><u>${note}</u></strong></p>`); 
-    console.log("🚀 ~ file: handlers.js:37 ~ addToDiscoveryNotes ~ original", original)
+const addToDiscoveryNotes = (propName, note) => {
+  let original = $(`#note-${propName} .ql-editor`).html();
+  $(`#note-${propName} .ql-editor`).html(
+    `${original}<p><strong><u>${note}</u></strong></p>`
+  );
+  //  console.log("🚀 ~ file: handlers.js:37 ~ addToDiscoveryNotes ~ original", original)
 };
-
-
 
 // const customerChanged = (newCustomer) => {
 //     if (!customerBaseline) {
@@ -52,4 +47,3 @@ const addToDiscoveryNotes = (propName, note) =>{
 //         return !isEqual;
 //     }
 // };
-

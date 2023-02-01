@@ -1,20 +1,27 @@
 .cust-list-container {
   display: flex;
-  width: 80%;
+  min-width: 80%;
   margin: 25px;
-  padding: 10px 20px 20px 10px;
+  padding: 10px 50px 20px 10px;
   flex-direction: column;
   border: 1px solid #ccc;
   border-radius: 20px;
+  position: relative;
 }
-
+.open-listing {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  font-size: 0.6em;
+}
 .customer-listing-header {
   font-size: 1.5em;
   font-weight: bold;
   width: 100%;
   color: brown;
   padding: 10px;
-  cursor: pointer;
 }
 
 .customer-estimate {
@@ -87,4 +94,12 @@
 }
 
 .stage-container {
+}
+
+.listing-hero {
+  margin: 10px;
+}
+
+.list-item-details-container {
+  display: none;
 }
