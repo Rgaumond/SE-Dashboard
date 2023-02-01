@@ -34,7 +34,12 @@ generateSelectOptions(
 );
 
 let sdrOptions = {};
-let SDRs = ["Yves Régimbald", "Charles Kijek", "Michael Badejo"];
+let SDRs = [
+  "Genny Dozortsev",
+  "Yves Régimbald",
+  "Charles Kijek",
+  "Michael Badejo",
+];
 generateSelectOptions(SDRs, sdrOptions, "SRD");
 
 let specialistsOptions = {};
@@ -49,15 +54,19 @@ generateSelectOptions(specialists, specialistsOptions, "SRD");
 
 let stageOptions = {};
 let stages = [
-  "No Stage",
-  "Assigned",
-  "Discovery & Tech Qualification",
-  "Technical SCoping",
-  "Validate Solution",
-  "Final Due",
-  "Technical Win",
-  "Technical Loss",
-  "Zombies",
+  "Select Stage",
+  "0- Qualified Out",
+  "1- Assigned",
+  "2- Discovery & Tech Qualification",
+  "3- Technical Scoping",
+  "4- Validate Solution",
+  "5- Final Due",
+  "6- Technical Win",
+  "7- Technical Loss",
+  "8- Zombies",
+  "9- Pending",
+  "10- Closed/Won",
+  "11- No Stage",
 ];
 generateSelectOptions(stages, stageOptions, "Meeting");
 
@@ -122,7 +131,6 @@ let heroTime = [
   "5.5",
   "6",
 ];
-generateSelectOptions(heroTime, heroTimeOptions, "Hero Time");
 
 // let sdrOptions = {
 //     "name": "SRD",

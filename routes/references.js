@@ -2,6 +2,7 @@
 "use strict";
 
 const express = require("express");
+const axios = require("axios");
 let router = express.Router();
 
 const db = require("../mongooseConnect");
@@ -35,7 +36,7 @@ router.route("/update").post(async (req, res) => {
   let payload = req.body;
   let id = payload._id;
   delete payload._id;
-  console.log(payload);
+  // console.log(payload);
   await Reference.updateOne({ _id: id }, payload, function (err) {
     if (err) return console.error(err);
   });

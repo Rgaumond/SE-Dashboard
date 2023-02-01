@@ -97,7 +97,7 @@ const toolbar = (label, propName) => {
 const addDatedNotes = (optionName) => {
   let original = $(`#note-${optionName} .ql-editor`).html();
   $(`#note-${optionName} .ql-editor`).html(
-    `<p><strong><u>${currentDate()}</u></strong></p><p></p><p></p>${original}`
+    `<p>(RG: ${currentDate()}) </p>${original}`
   );
 };
 

@@ -41,5 +41,3 @@ function max_date(all_dates) {
   });
   return max_dt;
 }
-
-console.log(`in`);

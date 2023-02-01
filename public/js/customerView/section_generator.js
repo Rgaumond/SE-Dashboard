@@ -58,6 +58,7 @@ const generateSections = () => {
       ["projectEstimate", "input", "Project Estimate"],
       ["wifProducts", "checkbox", "target Product"],
       ["solutionNotes", "textarea", "Solution Notes"],
+      ["stage", "select", "Stage"],
     ],
     "activities"
   );

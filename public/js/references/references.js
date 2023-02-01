@@ -65,17 +65,22 @@ const loadFeatures = () => {
 };
 
 const showItemDetails = (featureID) => {
-  //referenceUpdate();
-
   localStorage.setItem("refFeature", featureID);
-  currentFeature = currentFeatures.find((object) => {
+  currentFeature = references.find((object) => {
     return object._id === featureID;
   });
   localStorage.setItem("refProduct", currentFeature.product);
+
+  let product = localStorage.getItem("refProduct");
+  showReference(
+    document.getElementById("ref" + localStorage.getItem("refProduct")),
+    product
+  );
   if (!currentFeature.details) currentFeature.details = "";
   $("#note-details .ql-editor").html(currentFeature.details);
   $(".note-container").show();
   $(".ref-note-title").html(currentFeature.name);
+  dialog.disintegrate();
 };
 
 const noteContainer = (propName) => {
@@ -195,13 +200,11 @@ const createReferenceObject = (product, feature) => {
 
 const manageNavigation = (el) => {
   $(".ref-header-buttons").css({
-    borderColor: "#000",
-    color: "#000",
-    backgroundColor: "#fff",
+    backgroundColor: "white",
   });
-  el.style.borderColor = "blue";
-  el.style.backgroundColor = "blue";
-  el.style.color = "white";
+  el.style.borderColor = "white";
+  el.style.backgroundColor = "beige";
+  // el.style.color = "beige";
 };
 
 // const showTotalReferences = (total) =>{

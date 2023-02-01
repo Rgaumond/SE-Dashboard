@@ -22,9 +22,13 @@ $(document).ready(function () {
   buildCustomerFilterInputs();
   initiateRootEvents();
   dialog.disintegrate();
+  initSub();
+}, window);
+
+const initSub = () => {
   applyfilter();
   heroList();
-}, window);
+};
 
 const addCustomerButton = () => {
   let icon = addCustomerIcon();

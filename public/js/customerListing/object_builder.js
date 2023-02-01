@@ -1,31 +1,28 @@
 const createCustomerObject = (name, accountManager, iamType) => {
-    let newBlankCustomer = {};
-    newBlankCustomer.name=name;
-    newBlankCustomer.lastUpdate=currentDate();
-    newBlankCustomer.creationDate=currentDate();
-    newBlankCustomer.accountManager = { "list": [] };
-    newBlankCustomer.accountManager.list.push(accountManager.value);
-    newBlankCustomer.iamType = { "list": [] };
-    newBlankCustomer.iamType.list.push(iamType.value);
-    // newBlankCustomer.accountManager=accountManager;
-    // newBlankCustomer.IAMType= iamType;
-    newBlankCustomer.googleMeetingNotes="";
-    newBlankCustomer.srm="";
-    
-    newBlankCustomer.products={};    
-    newBlankCustomer.salesForceLink="";
-    newBlankCustomer.contacts=[];
-    newBlankCustomer.generalInfo="";
-    newBlankCustomer.numbeOfUsers="";
-    newBlankCustomer.nextSteps="";    
-    newBlankCustomer.project="";
-    
-    return newBlankCustomer;
+  let newBlankCustomer = {};
+  newBlankCustomer.name = name;
+  newBlankCustomer.lastUpdate = currentDate();
+  newBlankCustomer.creationDate = currentDate();
+  newBlankCustomer.accountManager = { list: [] };
+  newBlankCustomer.accountManager.list.push(accountManager.value);
+  newBlankCustomer.iamType = { list: [] };
+  newBlankCustomer.iamType.list.push(iamType.value);
+  // newBlankCustomer.accountManager=accountManager;
+  // newBlankCustomer.IAMType= iamType;
+  newBlankCustomer.googleMeetingNotes = "";
+  newBlankCustomer.srm = "";
+
+  newBlankCustomer.products = {};
+  newBlankCustomer.salesForceLink = "";
+  newBlankCustomer.contacts = [];
+  newBlankCustomer.generalInfo = "";
+  newBlankCustomer.numbeOfUsers = "";
+  newBlankCustomer.nextSteps = "";
+  newBlankCustomer.project = "";
+  newBlankCustomer.stage = { list: [] };
+  newBlankCustomer.stage.list.push(13);
+  return newBlankCustomer;
 };
-
-
-
-
 
 // const createCustomer = (newName, accountManager, engineer) => {
 //     let newBlankCustomer = {};
