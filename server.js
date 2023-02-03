@@ -1,5 +1,5 @@
 const express = require("express");
-const port = process.env.port || 5510;
+const PORT = process.env.port || 5510;
 const customersRouter = require("./routes/customers");
 const toDosRouter = require("./routes/todos");
 const referenceRouter = require("./routes/references");
@@ -24,11 +24,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(port, (err) => {
+app.listen(PORT, (err) => {
   if (err) {
     return console.log("ERROR", err);
   }
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 require("./mongoExport");
