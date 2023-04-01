@@ -18,6 +18,20 @@ const referenceUpdate = (feature) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(feature),
   }).then((res) => {
+    dialog.disintegrate();
+    showItemDetails(feature._id);
+    //generateReferenceList();
+    //window.location.href = "customerView.html?id="+data.newID;
+  });
+};
+
+const referenceUpdateKeyStroke = (feature) => {
+  //dialog.standy("update to do");
+  fetch("/references/update", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(feature),
+  }).then((res) => {
     // dialog.disintegrate();
     //generateReferenceList();
     //window.location.href = "customerView.html?id="+data.newID;
@@ -44,18 +58,15 @@ const referenceAdd = (obj) => {
 };
 
 /* DELETING */
-const referenceDelete = (id, index) => {
-  dialog.standy("adding customer");
+const referenceDelete = (feature) => {
+  dialog.standy("deleting customer");
   fetch("/references/delete", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ _id: id }),
+    body: JSON.stringify({ _id: feature._id }),
   }).then((res) => {
-    //  console.log(references);
-    references.splice(index, 1);
-    //   console.log(references);
     dialog.disintegrate();
-    generateReferenceList();
+    // generateReferenceItems(feature.name);
   });
 };
 
