@@ -9,7 +9,7 @@ let columns = [
 const generateInfoElement = () => {
   generateColumns(columns);
   generateStickyNotes("activity", "Meetings");
-  generateStickyNotes("temp", "NOTES");
+  // generateStickyNotes("temp", "NOTES");
 
   generateFloatingNotes("currentStack", "Meetings");
 };
@@ -75,7 +75,7 @@ const generateSections = () => {
     "tech"
   );
 
-  generateSection("CONTACTS", [["contacts", "list", "Contacts"]], "contact");
+  generateSection("CONTACTS", [["contacts", "list", "Contacts"]], "activities");
 
   generateSection(
     "DISCOVERY",

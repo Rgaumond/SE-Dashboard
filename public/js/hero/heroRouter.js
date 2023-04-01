@@ -45,7 +45,7 @@ const heroUpdate = (hero) => {
 
 /* DELETING */
 const heroDelete = (id, index, callback) => {
-  dialog.standy("adding customer");
+  //dialog.standy("adding customer");
   fetch("/heros/delete", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

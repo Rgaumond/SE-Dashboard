@@ -23,9 +23,11 @@ generateSelectOptions(meetingsTypes, nextMeetingOptions, "Meeting");
 let accountManagerOptions = {};
 let accountManagers = [
   "François Vigneault",
-  "Lindsay Osaka",
+  "John Campbell",
   "Kyffin De Souza",
   "Robert Samaan",
+  "John Campbell",
+  "Ron Hassanwalia",
 ];
 generateSelectOptions(
   accountManagers,
@@ -36,19 +38,23 @@ generateSelectOptions(
 let sdrOptions = {};
 let SDRs = [
   "Genny Dozortsev",
-  "Yves Régimbald",
+  "Stacey Ntongo",
   "Charles Kijek",
   "Michael Badejo",
+  "Stacey Ntongo",
+  "Genny Dozortsev",
 ];
 generateSelectOptions(SDRs, sdrOptions, "SRD");
 
 let specialistsOptions = {};
 let specialists = [
-  "Mike Berthold",
-  "Jordan Taylor",
-  "Alexander Spotnitz",
-  "Louis Migault",
-  "Andrew Whitman",
+  "Mike Berthold ARCH",
+  "Jordan Taylor CIC",
+  "Alexander Spotnitz ASA",
+  "Louis Migault BVA",
+  "Andrew Whitman CIC",
+  "Laurence York OIG",
+  "Ryan Masrani CSM",
 ];
 generateSelectOptions(specialists, specialistsOptions, "SRD");
 

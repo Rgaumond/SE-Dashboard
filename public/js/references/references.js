@@ -117,7 +117,7 @@ const buildNoteSection = () => {
     let containerID = quill.container.id;
     let content = $("#" + containerID + " .ql-editor").html();
     currentFeature.details = content;
-    referenceUpdate(currentFeature);
+    referenceUpdateKeyStroke(currentFeature);
     // if (quill.charCount > 1) {
     //   quill.charCount = 0;
     //   referenceUpdate();
@@ -129,7 +129,7 @@ const buildNoteSection = () => {
 const toolbar = (label, propName) => {
   let content = "<span class='ref-note-title' >" + label + "</span>";
   content +=
-    "<span class='noteIcon' onclick='referenceUpdate()'><i class='fa fa-floppy-o' aria-hidden='true'></i></span>";
+    "<span class='noteIcon' onclick='showModifDialog()'><i class='fa fa-floppy-o' aria-hidden='true'></i></span><span class='noteIcon' onclick='deleteRef()'><i class='fa fa-solid fa-trash fa-2xs' style='color: #da1039;' aria-hidden='true'></i></i></span>";
   // content += "<span class='noteExpand'  onclick=expandNote('" + propName + "')><i class='fa fa-expand' aria-hidden='true'></i></span>";
   return content;
 };
@@ -207,6 +207,11 @@ const manageNavigation = (el) => {
   // el.style.color = "beige";
 };
 
+const deleteRef = () => {
+  if (confirm("Delete!")) {
+    referenceDelete(currentFeature);
+  }
+};
 // const showTotalReferences = (total) =>{
 //     $('#reference-button').attr('data-content',total);
 // };

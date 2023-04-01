@@ -1,144 +1,142 @@
-﻿.main{
-    display: grid;
-    grid-template-columns: 960px auto;
+﻿.main {
+  display: grid;
+  grid-template-columns: 720px auto;
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 240px 240px 240px 240px;
+  display: grid;
+  grid-template-columns: 240px 240px 240px;
 }
 
 .notes {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: center;
 }
 
 .column {
-    height: 100%;
+  height: 100%;
 }
 
 .section {
-    margin: 10px;
-    background: #fff;
-    padding: 20px 20px 5px 20px;
-    border-radius: 5px;
-    position: relative;
-    border:1px solid var(--orange2020);
+  margin: 10px;
+  background: #fff;
+  padding: 20px 20px 5px 20px;
+  border-radius: 5px;
+  position: relative;
+  border: 1px solid var(--orange2020);
 }
 
 .eng-card-container {
-    position: relative;
+  position: relative;
 }
 .eng-card {
-    font-size:1em;
-    margin: 10px 5px 10px 5px;
-    width: 170px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  font-size: 1em;
+  margin: 10px 5px 10px 5px;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 .eng-card__title {
-    font-size: 1em;
-    font-weight: bold;
-    width: 100%;
-    position: relative;
-    color:rgb(12, 12, 82);
+  font-size: 1em;
+  font-weight: bold;
+  width: 100%;
+  position: relative;
+  color: rgb(12, 12, 82);
 }
 
 .eng-card__value {
-    cursor: pointer;
-    color:rgb(5, 5, 108);
+  cursor: pointer;
+  color: rgb(5, 5, 108);
 }
 
-
 .section::before {
-    content: attr(title);
-    position: absolute;
-    font-weight: bold;
-    top: 5px;
-    right: 50%;
-    transform: translate(50%, 0);
-    color: var(--orange2020);
-    font-size:.8em;
+  content: attr(title);
+  position: absolute;
+  font-weight: bold;
+  top: 5px;
+  right: 50%;
+  transform: translate(50%, 0);
+  color: var(--orange2020);
+  font-size: 0.8em;
 }
 
 .add-list {
-    position: absolute;
-    right:0;
-    top: -20px;
-    color: var(--orange2020);
-    cursor: pointer;
-
+  position: absolute;
+  right: 0;
+  top: -20px;
+  color: var(--orange2020);
+  cursor: pointer;
 }
 
 .engineeringFilterTotal {
-    position: absolute;
-    left: 20px;
-    top: -10px;
+  position: absolute;
+  left: 20px;
+  top: -10px;
 }
 
-.engLink{
-    color:blue;
-    text-decoration:underline;
+.engLink {
+  color: blue;
+  text-decoration: underline;
 }
-#viewToggle{
-    cursor:pointer;
-    width:50px;
-    height:44px;
-    background-color: rgb(225, 201, 240);
-    text-align: center;
-    border-radius: 15px;
-    margin:3px 5px;
-}
-
-#viewToggle::before{
-    content:"toggle";
-    width:60px;
-    line-height:42px;
-    text-align: center;
+#viewToggle {
+  cursor: pointer;
+  width: 50px;
+  height: 44px;
+  background-color: rgb(225, 201, 240);
+  text-align: center;
+  border-radius: 15px;
+  margin: 3px 5px;
 }
 
-#discovery-container{
-    display:flex;
-    position:absolute;
-    width:100vw;
-    height:calc(100vh - 50px);
-    position:absolute;
-    display:none; 
-    top:50px;
-    background-color: antiquewhite;
+#viewToggle::before {
+  content: "toggle";
+  width: 60px;
+  line-height: 42px;
+  text-align: center;
 }
 
-#discovery-stack-links{
-    width:200px;
-    padding-top: 20px;
+#discovery-container {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  position: absolute;
+  display: none;
+  top: 50px;
+  background-color: antiquewhite;
 }
 
-#discovery-stack-notes{
-    width:600px;
- }
- #discovery-meeting-links{
-    width:200px;
-   padding: 20px;
-}
-#discovery-meeting-subnotes{
-    width:600px;
-    padding-top: 20px;
-    background:red;
-}
-#discovery-meeting-notes{
-   width:600px;
+#discovery-stack-links {
+  width: 200px;
+  padding-top: 20px;
 }
 
-.discovery-link{
-    padding-left:30px;
-    height:25px;
-    cursor:pointer;
+#discovery-stack-notes {
+  width: 600px;
+}
+#discovery-meeting-links {
+  width: 200px;
+  padding: 20px;
+}
+#discovery-meeting-subnotes {
+  width: 600px;
+  padding-top: 20px;
+  background: red;
+}
+#discovery-meeting-notes {
+  width: 600px;
 }
 
-.discovery-link:hover{
-    color:blue;
-    text-decoration: underline;
+.discovery-link {
+  padding-left: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.discovery-link:hover {
+  color: blue;
+  text-decoration: underline;
 }

@@ -16,23 +16,24 @@ const searchReference = () => {
   else arrayOfLines.push($("#input-search").val());
 
   $.each(references, (index, ref) => {
+    let augmentedDetails = ref.details + " " + ref.name + " " + ref.product;
     if (
       arrayOfLines.every((item) =>
-        ref.details.toLowerCase().includes(item.toLowerCase())
+        augmentedDetails.toLowerCase().includes(item.toLowerCase())
       )
     )
       resultArray.push(ref);
   });
 
-  if (resultArray.length === 0)
-    $.each(references, (index, ref) => {
-      if (
-        arrayOfLines.every((item) =>
-          ref.name.toLowerCase().includes(item.toLowerCase())
-        )
-      )
-        resultArray.push(ref);
-    });
+  // if (resultArray.length === 0)
+  //   $.each(references, (index, ref) => {
+  //     if (
+  //       arrayOfLines.every((item) =>
+  //         ref.name.toLowerCase().includes(item.toLowerCase())
+  //       )
+  //     )
+  //       resultArray.push(ref);
+  //   });
 
   showResult();
 };

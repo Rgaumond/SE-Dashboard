@@ -194,7 +194,7 @@ const stickNote = (value) => {
 const setStickyNotesHeight = () => {
   let targetHeight = $(".main").height() - 130;
   $(".note-container").css({
-    "min-height": targetHeight / 2,
-    "max-height": targetHeight / 2,
+    "min-height": targetHeight,
+    "max-height": targetHeight,
   });
 };

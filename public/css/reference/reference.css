@@ -71,7 +71,7 @@
 }
 
 .ref-result-outer-container {
-  padding: 10px 0;
+  padding: 10px 70px 10px 0;
 }
 
 .ref-result-container {
@@ -94,5 +94,5 @@
 
 .showRefLink {
   position: absolute;
-  right: 5px;
+  right: -50px;
 }

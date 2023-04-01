@@ -68,7 +68,9 @@ const filterList = () => {
 
 const list = (stage) => {
   let ct = "";
-  ct += `<div class="stage-header">STAGE:  ${stage - 1} </div>`;
+  ct += `<div class="stage-header">STAGE:  ${
+    stage - 1
+  } <span class="ccDate" onclick="ccDate()">today</span></div>`;
   $.each(filteredList, (index, cust) => {
     ct += htmlListTemplate(cust);
   });
@@ -80,7 +82,7 @@ const cc = (id) => {
   let theText = $("#" + id).html();
   let front = theText.substring(0, theText.indexOf("("));
   let back = theText.substring(theText.indexOf(")") + 1);
-  let middle = " (RG:" + new Date().toDateString() + ") ";
+  let middle = "(RG: " + new Date().toDateString() + ") ";
   var copyText = front + middle + back;
   var strippedHtml = copyText.replace(/<[^>]+>/g, "");
   navigator.clipboard.writeText(strippedHtml);
@@ -91,7 +93,7 @@ const htmlListTemplate = (cust) => {
   <div class='cust-list-container' ">
     <div id='${cust._id}' class='customer-listing-header'   >
     <span style="cursor:pointer" onclick="showNote(${cust._id})">${cust.name} </span> <span class="customer-estimate">($${cust.projectEstimate})</span><span class="customer-target-date"> ${cust.targetDate}</span>
-    <span class="open-listing" onclick="document.location.href = 'customerView.html?id=${cust._id}'">VIEW</span>
+    <span class="open-listing" onclick="window.open('customerView.html?id=${cust._id}')">VIEW</span>
     </div>
     
       <div id="liste-item-details${cust._id}" class="list-item-details-container">
@@ -141,4 +143,8 @@ const addHerosToListing = (id) => {
     cHero += `</div>`;
     $(`#${id}hero-container`).html(cHero);
   }
+};
+
+const ccDate = (id) => {
+  navigator.clipboard.writeText("RG: " + new Date().toDateString());
 };

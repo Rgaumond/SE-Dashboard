@@ -35,4 +35,15 @@ const loadHeader = () => {
   ) {
     showItemDetails(parseInt(localStorage.getItem("refFeature")));
   }
+  updateTitle();
+};
+
+const updateTitle = () => {
+  let wifArr = [];
+  $.each(references, (i, ref) => {
+    if (ref.product === "WIF") {
+      ref.product = "WIC";
+      referenceUpdate(ref);
+    }
+  });
 };
