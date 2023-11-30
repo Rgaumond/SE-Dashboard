@@ -24,9 +24,9 @@ let accountManagerOptions = {};
 let accountManagers = [
   "François Vigneault",
   "John Campbell",
-  "Kyffin De Souza",
-  "Robert Samaan",
-  "John Campbell",
+  "Michael Annett",
+  "James Short",
+  "Natali Guay",
   "Ron Hassanwalia",
 ];
 generateSelectOptions(
