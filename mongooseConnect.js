@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const uri =
-  "mongodb+srv://rgaumond:Qk%40qMiJ9TAV%40cv4@cluster0.djc2jgg.mongodb.net//SEDB";
+  "mongodb+srv://rgaumond:Qk%40qMiJ9TAV%40cv4@cluster0.djc2jgg.mongodb.net/SEDB";
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB"))
