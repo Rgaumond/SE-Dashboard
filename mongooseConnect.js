@@ -1,17 +1,16 @@
 const mongoose = require("mongoose");
-const connection =
-  "mongodb+srv://rgaumond:Qk%40qMiJ9TAV%40cv4@cluster0.djc2jgg.mongodb.net/SEDB";
-//Db connection
-mongoose.connect(connection, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const db = mongoose.connection;
-db.on("error", function (error) {
-  return console.log("MONGO ERROR:" + error);
-});
-db.once("open", () => {
-  console.log("Connected to DB");
+const uri =
+  "mongodb+srv://rgaumond:<password>@cluster0.djc2jgg.mongodb.net/SEDB";
+mongoose
+  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+
+mongoose.connection.on("error", (err) => {
+  console.error("MongoDB connection error:", err);
 });
 
-module.exports = mongoose.connection;
+mongoose.connection.on("disconnected", () => {
+  console.log("MongoDB disconnected. Attempting to reconnect...");
+  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+});
