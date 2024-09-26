@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "express-openid-connect": "^2.10.0",
     "locutus": "^2.0.14",
+    "mongodb": "^6.9.0",
     "mongoose": "^5.11.18"
   }
 }
