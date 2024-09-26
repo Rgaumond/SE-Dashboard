@@ -15,3 +15,4 @@ db.once("open", () => {
 });
 
 module.exports = mongoose.connection;
+
