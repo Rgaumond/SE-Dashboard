@@ -1,10 +1,8 @@
+require("dotenv").config();
 const MongoClient = require("mongodb").MongoClient;
 const fs = require("fs");
 const dbName = "SEDB";
-const client = new MongoClient(
-  "mongodb+srv://rgaumond:Qk%40qMiJ9TAV%40cv4@cluster0.djc2jgg.mongodb.net/SEDB",
-  { useUnifiedTopology: true }
-);
+const client = new MongoClient(process.env.DBURL, { useUnifiedTopology: true });
 
 client.connect(function (err) {
   //assert.equal(null, err);
